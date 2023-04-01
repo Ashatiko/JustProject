@@ -1,0 +1,61 @@
+﻿h1{
+    padding-top:160px;
+    padding-bottom:95px;
+}
+
+.login-a{
+    width:367px;
+    margin:0 auto;
+    margin-top: 140px;
+}
+
+.line-red {
+    width: 100px;
+    height: 3px;
+    margin: -3px auto 0 auto;
+    background: #ff0000;
+    border-radius: 5px 5px 0 0;
+}
+
+.login-a a {
+    border-radius: 20px 20px 0 0;
+    width: 155px;
+    margin-bottom: 40px;
+}
+
+.enter input {
+    width: 642px;
+    height: 50px;
+    margin-bottom: 50px;
+}
+
+.enter label{
+    padding-bottom:8px;
+}
+
+.enter{
+    text-align:left;
+}
+
+.enter button {
+    width: 235px;
+    margin: 30px auto 200px auto;
+}
+
+.checked {
+    margin: 0 auto;
+}
+
+.checked input{
+    height:20px;
+    width:20px;
+    margin-right: 10px;
+    margin-top:-3px;
+}
+
+.checked label {
+    align-items: center;
+    display: flex;
+    height: 20px;
+    color: #006BB9;
+}

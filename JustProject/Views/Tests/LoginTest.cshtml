@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Доступ к тесту";
+}
+
+<link rel="stylesheet" href="~/css/Login.css" />
+
+<div class="login d-flex justify-content-center text-center">
+    <div>
+        <h1>Доступ к тесту</h1>
+        <form class="d-grid enter" action="~/Tests/LoginTest" method="post">
+            <label>Логин:</label>
+            <input type="text" value="" />
+            <label>Пароль:</label>
+            <input type="password" value="" />
+            <div class="checked d-flex justify-content-between">
+                <input type="checkbox" value="" />
+                <label>Я знаком с условиями доступа</label>
+            </div>
+
+            <button type="submit">Пройти тест</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿
+
+.container {
+    width:1520px;
+    margin:0 auto;
+}
+
+    .btn-link span {
+        padding: 0 60px 0 60px;
+        align-items: center;
+    }
+
+.header-link{
+    width:363px;
+    padding-right:45px;
+}
+
+header button span {
+    padding: 0 60px 0 60px;
+}
+
+header a {
+    font-size: 18px;
+}
+
+header hr{
+    margin-top:15px;
+}
+
+.footer {
+    /*position: absolute;*/
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /*line-height: 10px;*/    
+}
+
+.footer-container {
+    padding: 0 128px 0 128px;
+    padding-top: 55px;
+}
+
+.footer-container a{
+    display:block;
+    font-size: 14px;
+}
+
+.footer-messenger {
+    width: 130px;
+    padding-top:35px;
+}
+
+.footer-link{
+    width: 345px;
+    padding-top:10px;
+}
+
+.footer-info{
+    padding-top:85px;
+}
+
+.footer-info p {
+    color: #112A3D;
+    font-size: 14px;
+    cursor: default;
+}

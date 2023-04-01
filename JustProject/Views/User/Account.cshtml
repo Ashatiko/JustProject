@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Личный кабинет";
+}
+
+<link rel="stylesheet" href="~/css/Account.css" />
+
+<div class="top-line"></div>
+<div class="Account d-flex justify-content-between">
+    <div class="personal-cart">
+        <img src="~/Images/User/personal.png"/>
+        <p>Михаил</p>
+        <hr />
+        <div>
+            <a href="~/User/Account">Личные данные</a>
+            <hr />
+        </div>
+        <a href="~/User/HistoryTests">История тестов</a>
+        <a href="~/User/Consultation">Констультация</a>
+        <a href="~/User/Results">Результаты тестов</a>
+        <button><span>Выйти</span></button>
+    </div>
+    <div class="personal-data">
+        <form action="#" method="">
+            <label>ФИО</label>
+            <input type="text" value=""/>
+            <label>E-mail</label>
+            <input type="email" value=""/>
+            <label>Пароль</label>
+            <input type="password" value=""/>
+            <label>Телефон</label>
+            <input type="tel" value=""/>
+            <button><span>Сохранить изменения</span></button>
+        </form>
+    </div>
+</div>

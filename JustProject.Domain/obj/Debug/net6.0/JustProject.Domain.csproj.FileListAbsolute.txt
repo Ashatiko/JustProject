@@ -1,0 +1,12 @@
+D:\C#\JustProject\JustProject.Domain\bin\Debug\net6.0\JustProject.Domain.deps.json
+D:\C#\JustProject\JustProject.Domain\bin\Debug\net6.0\JustProject.Domain.dll
+D:\C#\JustProject\JustProject.Domain\bin\Debug\net6.0\JustProject.Domain.pdb
+D:\C#\JustProject\JustProject.Domain\obj\Debug\net6.0\JustProject.Domain.csproj.AssemblyReference.cache
+D:\C#\JustProject\JustProject.Domain\obj\Debug\net6.0\JustProject.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\JustProject\JustProject.Domain\obj\Debug\net6.0\JustProject.Domain.AssemblyInfoInputs.cache
+D:\C#\JustProject\JustProject.Domain\obj\Debug\net6.0\JustProject.Domain.AssemblyInfo.cs
+D:\C#\JustProject\JustProject.Domain\obj\Debug\net6.0\JustProject.Domain.csproj.CoreCompileInputs.cache
+D:\C#\JustProject\JustProject.Domain\obj\Debug\net6.0\JustProject.Domain.dll
+D:\C#\JustProject\JustProject.Domain\obj\Debug\net6.0\refint\JustProject.Domain.dll
+D:\C#\JustProject\JustProject.Domain\obj\Debug\net6.0\JustProject.Domain.pdb
+D:\C#\JustProject\JustProject.Domain\obj\Debug\net6.0\ref\JustProject.Domain.dll

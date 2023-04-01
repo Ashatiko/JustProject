@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JustProject - @ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/JustProject.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@700&display=swap" rel="stylesheet"> 
+
+</head>
+<body>
+    <div class="container">
+
+        <header class="pt-4">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="/Home/Index"><img src="~/Images/logo.svg" alt="KOPP test"/></a>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="header-link d-flex justify-content-between">
+                        <a href="#">О нас</a>
+                        <a href="#">Контакты</a>
+                        <a href="#">Тестирование</a>
+                    </div>                    
+                    <a class="btn-link" href="/User/Login"><span>Войти</span></a>
+                </div>
+            </div>
+            <hr />
+        </header>
+        <main role="main">
+            @RenderBody()
+        </main>
+
+        <footer class="footer">                
+            <hr />
+            <div class="footer-container">
+                <div class="d-flex justify-content-between">
+                    <a href="#"><img src="~/Images/logo.svg" alt="KOPP test"/></a>
+                    <div class="footer-link d-flex justify-content-between">
+                        <div>
+                            <a href="#">Категория</a>
+                            <a href="#">О нас</a>
+                            <a href="#">Отзывы</a>
+                            <a href="#">Контакты</a>
+                        </div>
+                        <div>
+                            <a href="#">Войти</a>
+                            <a href="#">Тесты</a>
+                            <a href="#">Поддержка</a>
+                        </div>
+                    </div>
+                    <div class="footer-messenger d-flex justify-content-between">
+                        <a href="#"><img src="~/Images/whatsapp.svg"/></a>
+                        <a href="#"><img src="~/Images/mail.svg"/></a>
+                        <a href="#"><img src="~/Images/telegram.svg"/></a>
+                    </div>
+                </div>
+                <div class="footer-info d-flex justify-content-between">
+                    <p>© 2022-2030 DiagnoTests</p>
+                    <p>Правовая информация</p>
+                </div>
+            </div>            
+        </footer>
+
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

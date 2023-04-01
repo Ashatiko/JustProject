@@ -1,0 +1,121 @@
+﻿.personal-cart {
+    padding: 65px 73px;
+    background: #ffffff;
+    border-radius: 10px;
+    height: 826px;
+    width: 493px;
+    text-align: center;
+    box-shadow: 0 0 20px 3px #808080;    
+    margin-right:10px;
+}
+
+.personal-cart a{
+    display:block;
+    margin-bottom:40px;
+    color:#000000;
+}
+
+.personal-cart div{
+    width:152px;
+    margin:0 auto;
+}
+
+.personal-cart div hr{
+    margin-top: -30px;
+    margin-bottom: 35px;
+}
+
+.personal-cart div a{
+    color:#0071C2;
+}
+
+.personal-cart hr {
+    margin-top: 24px;
+    margin-bottom: 60px;
+}
+
+.personal-cart button{
+    margin-top: 40px;
+}
+
+.personal-cart p{
+    font-size: 24px;
+    padding-top: 20px;
+    color:#0071C2;
+}
+
+.personal-cart span{
+    padding: 0 60px;    
+}
+
+.personal-data {
+    height: 1055px;
+    width: 1000px;
+    padding: 100px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 3px #808080;
+    text-align:left;
+    margin-left:10px;
+    margin-bottom:137px;
+}
+
+.personal-data label{
+    padding-bottom:14px;
+    font-size:18px;
+}
+
+.personal-data span{
+    padding: 0 25px;
+}
+
+.personal-data input{
+    height:60px;
+    width:622px;
+    margin-bottom:65px;
+}
+
+.personal-data h2{
+    padding-bottom: 56px;
+}
+
+.cart-test {
+    padding: 45px;
+    height: 163px;
+    width: 534px;
+    border: 1px solid #0071C2;
+    border-radius: 10px;
+    transition: 0.5s ease;
+    color: #0071C2;
+    margin-bottom: 50px;
+}
+
+    .cart-test:hover {
+        border-left: 15px solid #0071C2;
+    }
+
+    .cart-test h3 {
+        color: #0071C2;
+        padding-bottom: 16px;
+        margin: 0;
+    }
+
+.data {
+    color: #00406F;
+}
+
+.result {
+    color: #00477B;
+}
+
+.btn-more {
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #004A80;
+    margin-top: 110px;    
+}
+
+.consultation span{
+    padding: 0 55px 0 55px;
+}

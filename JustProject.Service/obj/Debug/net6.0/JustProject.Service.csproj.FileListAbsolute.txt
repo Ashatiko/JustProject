@@ -1,0 +1,17 @@
+D:\C#\JustProject\JustProject.Service\obj\Debug\net6.0\JustProject.Service.csproj.AssemblyReference.cache
+D:\C#\JustProject\JustProject.Service\obj\Debug\net6.0\JustProject.Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\JustProject\JustProject.Service\obj\Debug\net6.0\JustProject.Service.AssemblyInfoInputs.cache
+D:\C#\JustProject\JustProject.Service\obj\Debug\net6.0\JustProject.Service.AssemblyInfo.cs
+D:\C#\JustProject\JustProject.Service\obj\Debug\net6.0\JustProject.Service.csproj.CoreCompileInputs.cache
+D:\C#\JustProject\JustProject.Service\bin\Debug\net6.0\JustProject.Service.deps.json
+D:\C#\JustProject\JustProject.Service\bin\Debug\net6.0\JustProject.Service.dll
+D:\C#\JustProject\JustProject.Service\bin\Debug\net6.0\JustProject.Service.pdb
+D:\C#\JustProject\JustProject.Service\bin\Debug\net6.0\JustProject.DAL.dll
+D:\C#\JustProject\JustProject.Service\bin\Debug\net6.0\JustProject.Domain.dll
+D:\C#\JustProject\JustProject.Service\bin\Debug\net6.0\JustProject.DAL.pdb
+D:\C#\JustProject\JustProject.Service\bin\Debug\net6.0\JustProject.Domain.pdb
+D:\C#\JustProject\JustProject.Service\obj\Debug\net6.0\JustProject.Service.csproj.CopyComplete
+D:\C#\JustProject\JustProject.Service\obj\Debug\net6.0\JustProject.Service.dll
+D:\C#\JustProject\JustProject.Service\obj\Debug\net6.0\refint\JustProject.Service.dll
+D:\C#\JustProject\JustProject.Service\obj\Debug\net6.0\JustProject.Service.pdb
+D:\C#\JustProject\JustProject.Service\obj\Debug\net6.0\ref\JustProject.Service.dll

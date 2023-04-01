@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Авторизация";
+}
+
+<link rel="stylesheet" href="~/css/Login.css" />
+
+<div class="login d-flex justify-content-center">
+    <div>        
+        <div class="d-flex justify-content-between login-a">            
+            <div>
+                <div class="line-red"></div>
+                <a class="btn-link">Вход</a>
+            </div>
+            <a class="btn-link" href="~/User/Register">Регистрация</a>
+        </div>
+        <form class="d-grid enter" action="~/User/Login" method="post">
+            <label>E-mail</label>
+            <input type="text" name="Email"/>
+            <label>Пароль</label>
+            <input type="password" name="Password"/>            
+
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+</div>

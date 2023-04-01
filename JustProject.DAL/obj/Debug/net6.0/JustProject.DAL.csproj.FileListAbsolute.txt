@@ -1,0 +1,15 @@
+D:\C#\JustProject\JustProject.DAL\obj\Debug\net6.0\JustProject.DAL.csproj.AssemblyReference.cache
+D:\C#\JustProject\JustProject.DAL\obj\Debug\net6.0\JustProject.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\JustProject\JustProject.DAL\obj\Debug\net6.0\JustProject.DAL.AssemblyInfoInputs.cache
+D:\C#\JustProject\JustProject.DAL\obj\Debug\net6.0\JustProject.DAL.AssemblyInfo.cs
+D:\C#\JustProject\JustProject.DAL\obj\Debug\net6.0\JustProject.DAL.csproj.CoreCompileInputs.cache
+D:\C#\JustProject\JustProject.DAL\bin\Debug\net6.0\JustProject.DAL.deps.json
+D:\C#\JustProject\JustProject.DAL\bin\Debug\net6.0\JustProject.DAL.dll
+D:\C#\JustProject\JustProject.DAL\bin\Debug\net6.0\JustProject.DAL.pdb
+D:\C#\JustProject\JustProject.DAL\bin\Debug\net6.0\JustProject.Domain.dll
+D:\C#\JustProject\JustProject.DAL\bin\Debug\net6.0\JustProject.Domain.pdb
+D:\C#\JustProject\JustProject.DAL\obj\Debug\net6.0\JustProject.DAL.csproj.CopyComplete
+D:\C#\JustProject\JustProject.DAL\obj\Debug\net6.0\JustProject.DAL.dll
+D:\C#\JustProject\JustProject.DAL\obj\Debug\net6.0\refint\JustProject.DAL.dll
+D:\C#\JustProject\JustProject.DAL\obj\Debug\net6.0\JustProject.DAL.pdb
+D:\C#\JustProject\JustProject.DAL\obj\Debug\net6.0\ref\JustProject.DAL.dll

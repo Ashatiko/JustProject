@@ -1,0 +1,67 @@
+/* _content/JustProject/Views/Shared/_Layout.cshtml.rz.scp.css */
+
+
+.container[b-r4ssp3n2oj] {
+    width:1520px;
+    margin:0 auto;
+}
+
+    .btn-link span[b-r4ssp3n2oj] {
+        padding: 0 60px 0 60px;
+        align-items: center;
+    }
+
+.header-link[b-r4ssp3n2oj]{
+    width:363px;
+    padding-right:45px;
+}
+
+header button span[b-r4ssp3n2oj] {
+    padding: 0 60px 0 60px;
+}
+
+header a[b-r4ssp3n2oj] {
+    font-size: 18px;
+}
+
+header hr[b-r4ssp3n2oj]{
+    margin-top:15px;
+}
+
+.footer[b-r4ssp3n2oj] {
+    /*position: absolute;*/
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /*line-height: 10px;*/    
+}
+
+.footer-container[b-r4ssp3n2oj] {
+    padding: 0 128px 0 128px;
+    padding-top: 55px;
+}
+
+.footer-container a[b-r4ssp3n2oj]{
+    display:block;
+    font-size: 14px;
+}
+
+.footer-messenger[b-r4ssp3n2oj] {
+    width: 130px;
+    padding-top:35px;
+}
+
+.footer-link[b-r4ssp3n2oj]{
+    width: 345px;
+    padding-top:10px;
+}
+
+.footer-info[b-r4ssp3n2oj]{
+    padding-top:85px;
+}
+
+.footer-info p[b-r4ssp3n2oj] {
+    color: #112A3D;
+    font-size: 14px;
+    cursor: default;
+}
