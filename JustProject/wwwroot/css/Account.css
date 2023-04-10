@@ -9,10 +9,27 @@
     margin-right:10px;
 }
 
-.personal-cart a{
-    display:block;
-    margin-bottom:40px;
-    color:#000000;
+.txt-edit {
+    justify-content: center;
+    display: flex;
+    padding-bottom: 20px;
+    color: #ffffff;   
+}
+
+.btn-changes-end{
+    margin-left:25px;
+    visibility:hidden;
+}
+
+.exit {
+    width: 180px;
+    margin: 0 auto;
+}
+
+.personal-cart .page-a {
+    display: block;
+    margin-bottom: 40px;
+    color: #000000;
 }
 
 .personal-cart div{
@@ -49,7 +66,7 @@
 }
 
 .personal-data {
-    height: 1055px;
+    min-height: 1055px;
     width: 1000px;
     padding: 100px;
     background: #ffffff;
@@ -79,9 +96,20 @@
     padding-bottom: 56px;
 }
 
+.dropdown-content {
+    display: none;
+    position: relative;
+    overflow: auto;
+    z-index: 1;
+}
+
+.show {
+    display: block;
+}
+
 .cart-test {
     padding: 45px;
-    height: 163px;
+    min-height: 163px;
     width: 534px;
     border: 1px solid #0071C2;
     border-radius: 10px;

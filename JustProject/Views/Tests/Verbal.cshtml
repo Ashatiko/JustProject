@@ -1,0 +1,44 @@
+﻿@model List<JustProject.Models.Tests.Question>
+
+@{
+    ViewBag.Title = "Вербальные способности";
+}
+
+<link rel="stylesheet" href="~/css/Tests.css" />
+
+<div class="test">
+    <h1>Вербальные способности</h1>
+    <form class="d-flex justify-content-center" method="post" action="Verbal">
+        <div>   
+            @foreach (var test in Model)
+            {
+                <div class="question">
+                    <p>@test.Text </p>
+                    <div class="d-flex answers-txt">
+                        <div >
+                            <p>1.  @test.Choices[0]</p>
+                            <p>2.  @test.Choices[1]</p>                        
+                        </div>
+                        <div >
+                            <p>3.  @test.Choices[2]</p>                    
+                            <p>4.  @test.Choices[3]</p>
+                        </div>
+                    </div>
+                </div>       
+                <div class="d-flex justify-content-between answer">
+                    <input type="radio" name="@test.NumberQuestion" value="@test.IdQuestion[0]" id="@test.IdQuestion[0]" />
+                    <label for="@test.IdQuestion[0]" class="radio">1</label>
+                    <input type="radio" name="@test.NumberQuestion" value="@test.IdQuestion[1]" id="@test.IdQuestion[1]" />
+                    <label for="@test.IdQuestion[1]" class="radio">2</label>
+                    <input type="radio" name="@test.NumberQuestion" value="@test.IdQuestion[2]" id="@test.IdQuestion[2]" />
+                    <label for="@test.IdQuestion[2]" class="radio">3</label>
+                    <input type="radio" name="@test.NumberQuestion" value="@test.IdQuestion[3]" id="@test.IdQuestion[3]" />
+                    <label for="@test.IdQuestion[3]" class="radio">4</label>                    
+                </div>
+            }                      
+            <div class="d-flex justify-content-center">
+                <button type="submit">Далее</button>
+            </div>
+        </div>
+    </form>
+</div>

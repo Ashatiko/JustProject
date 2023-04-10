@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qK2iCamUAxCknuBTpP8Exg5XL90nW12UT+l9ubNZyr0=",
+  "Hash": "BOgyCYt8GPIgtWVFkLGPLjTZ6Ky+eaHXnDrhR+zCx0U=",
   "Source": "JustProject",
   "BasePath": "_content/JustProject",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Account.css"
+    },
+    {
+      "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\css\\AddCMS.css",
+      "SourceId": "JustProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\JustProject\\JustProject\\wwwroot\\",
+      "BasePath": "_content/JustProject",
+      "RelativePath": "css/AddCMS.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\AddCMS.css"
     },
     {
       "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\css\\Landing.css",
@@ -323,6 +340,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\landing\\transitionTopBottom.png"
     },
     {
+      "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\Images\\landing\\user.png",
+      "SourceId": "JustProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\JustProject\\JustProject\\wwwroot\\",
+      "BasePath": "_content/JustProject",
+      "RelativePath": "Images/landing/user.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\landing\\user.png"
+    },
+    {
       "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\Images\\landing\\Vector.png",
       "SourceId": "JustProject",
       "SourceType": "Discovered",
@@ -391,6 +425,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\telegram.svg"
     },
     {
+      "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\Images\\Test\\mouse.png",
+      "SourceId": "JustProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\JustProject\\JustProject\\wwwroot\\",
+      "BasePath": "_content/JustProject",
+      "RelativePath": "Images/Test/mouse.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Test\\mouse.png"
+    },
+    {
       "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\Images\\User\\personal.png",
       "SourceId": "JustProject",
       "SourceType": "Discovered",
@@ -423,6 +474,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\whatsapp.svg"
+    },
+    {
+      "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\js\\account.js",
+      "SourceId": "JustProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\JustProject\\JustProject\\wwwroot\\",
+      "BasePath": "_content/JustProject",
+      "RelativePath": "js/account.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\account.js"
+    },
+    {
+      "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\js\\accountScroll.js",
+      "SourceId": "JustProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\JustProject\\JustProject\\wwwroot\\",
+      "BasePath": "_content/JustProject",
+      "RelativePath": "js/accountScroll.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\accountScroll.js"
     },
     {
       "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\js\\site.js",

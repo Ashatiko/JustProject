@@ -1,0 +1,35 @@
+﻿.profession-add{
+
+}
+
+.profession-add h1{
+    padding-top:112px;
+    padding-bottom:42px;
+}
+
+.profession-add-value{
+    width: 546px;
+    margin-bottom: 40px;
+}
+
+form button {
+    display: flex;
+    width: 236px;
+    margin: 0 auto;
+    margin-bottom: 220px;
+}
+
+form button span{
+    margin:auto;
+}
+
+form{
+    width:580px;
+}
+
+.profession-name{
+    widows: 545px;
+    height: 53px;
+    font-size: 32px;
+    margin-bottom:40px;
+}

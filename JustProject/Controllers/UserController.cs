@@ -1,4 +1,7 @@
-﻿using JustProject.Domain.ViewModels;
+﻿using JustProject.Domain.Response;
+using JustProject.Domain.ViewModels;
+using JustProject.Service.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProjectAspMvc.Service.Interfaces;
 
@@ -6,6 +9,13 @@ namespace JustProject.Controllers
 {
     public class UserController : Controller
     {
+        private readonly IUserService _userService;
+        private readonly IUserTestsService _userTests;
+        public UserController(IUserService userService, IUserTestsService userTests)
+        {
+            _userService = userService;
+            _userTests = userTests;
+        }
 
         [HttpGet]
         public async Task<ActionResult> Login()
@@ -13,14 +23,38 @@ namespace JustProject.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpGet]
+        public async Task<ActionResult> LogOut()
+        {
+            var auther = await _userService.LogOut();
+            if (auther == true) return RedirectToAction("Login", "User");
+            return RedirectToAction("Account", "User");
+        }
+
+        [HttpPost]        
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
+                var userbool = await _userService.Login(model);
+                if (userbool == false) return View(model);
                 return RedirectToAction("Account", "User");
             }
-            return RedirectToAction("Account", "User");
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Account()
+        {
+            var user = await _userService.GetUser();
+            return View(user.Data);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Account(AccountViewModel model)
+        {
+            var user = await _userService.GetEditUser(model);
+            return View(user.Data);
         }
 
         [HttpGet]
@@ -37,33 +71,32 @@ namespace JustProject.Controllers
 
 
         [HttpGet]
-
         public async Task<ActionResult> LoginTest()
         {
-            return View();
+            var user = await _userService.GetUser();
+            return View(user.Data);
         }
 
+        [HttpGet]
         public async Task<IActionResult> HistoryTests()
-        {
-            return View();
+        {            
+            var tests = await _userService.GetHistoryTest();
+
+            return View(tests);
         }
 
         [HttpGet]
         public async Task<IActionResult> Results()
         {
-            return View();
+            var user = await _userService.GetUser();
+            return View(user.Data);
         }
 
         [HttpGet]
         public async Task<IActionResult> Consultation()
         {
-            return View();
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Account()
-        {
-            return View();
-        }
+            var user = await _userService.GetUser();
+            return View(user.Data);
+        }        
     }
 }

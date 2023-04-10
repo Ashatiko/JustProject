@@ -13,8 +13,10 @@ namespace JustProject.Domain.Entity
         public string Surname { get; set; }
         public string Patronumic { get; set; }
         public string Email { get; set; }
-        public int Phone { get; set; }
+        public decimal Phone { get; set; }
         public string Password { get; set; }
+        public string Role { get; set; }        
+        public int UserTests { get; set; }
 
     }
 }

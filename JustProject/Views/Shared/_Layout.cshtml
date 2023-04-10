@@ -18,14 +18,26 @@
 
         <header class="pt-4">
             <div class="d-flex justify-content-between align-items-center">
-                <a href="/Home/Index"><img src="~/Images/logo.svg" alt="KOPP test"/></a>
+                <a asp-action="Index" asp-controller="Home"><img src="~/Images/logo.svg" alt="KOPP test"/></a>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="header-link d-flex justify-content-between">
-                        <a href="#">О нас</a>
-                        <a href="#">Контакты</a>
-                        <a href="#">Тестирование</a>
-                    </div>                    
-                    <a class="btn-link" href="/User/Login"><span>Войти</span></a>
+                        <button class="btn-none" onclick="scrollToAboutUs()">О нас</button>
+                        <button class="btn-none" onclick="scrollToContact()">Контакты</button>
+                        <button class="btn-none" onclick="scrollToTests()">Тестирование</button>
+                    </div>                            
+                    @if (User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("Manager"))
+                    {
+                        @*<a class="btn-link" href="/User/Account"><span>Личный кабинет</span></a>  *@      
+                        <a asp-controller="User" asp-action="Account">
+                            <img src="~/Images/landing/user.png">
+                            @User.Identity.Name
+                        </a>
+                            
+                    }                    
+                    else
+                    {
+                        <a class="btn-link" href="/User/Login"><span>Войти</span></a>   
+                    }
                 </div>
             </div>
             <hr />
@@ -38,16 +50,23 @@
             <hr />
             <div class="footer-container">
                 <div class="d-flex justify-content-between">
-                    <a href="#"><img src="~/Images/logo.svg" alt="KOPP test"/></a>
+                    <a asp-action="Index" asp-controller="Home"><img src="~/Images/logo.svg" alt="KOPP test"/></a>
                     <div class="footer-link d-flex justify-content-between">
-                        <div>
-                            <a href="#">Категория</a>
-                            <a href="#">О нас</a>
-                            <a href="#">Отзывы</a>
-                            <a href="#">Контакты</a>
+                        <div>                            
+                            <button class="btn-none" onclick="scrollToAdvantages()">Наши преимущества</button>
+                            <button class="btn-none" onclick="scrollToAboutUs()">О нас</button>          
+                            <button class="btn-none" onclick="scrollToReviews()">Отзывы</button>
+                            <button class="btn-none" onclick="scrollToContact()">Контакты</button>
                         </div>
                         <div>
-                            <a href="#">Войти</a>
+                            @if (User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("Manager"))
+                            {
+                                <a class="footer-enter" asp-controller="User" asp-action="Account"><span>Личный кабинет</span> </a>
+                            }
+                            else
+                            {
+                                <a class="footer-enter" asp-action="Login" asp-controller="User"><span>Войти</span></a>   
+                            }
                             <a href="#">Тесты</a>
                             <a href="#">Поддержка</a>
                         </div>

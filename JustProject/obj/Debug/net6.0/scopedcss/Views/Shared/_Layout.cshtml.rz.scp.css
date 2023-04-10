@@ -10,9 +10,15 @@
         align-items: center;
     }
 
-.header-link[b-r4ssp3n2oj]{
-    width:363px;
-    padding-right:45px;
+.btn-none[b-r4ssp3n2oj] {
+    background: none;
+    color: #0071C2;
+    font-size: 18px;
+}
+
+.header-link[b-r4ssp3n2oj] {
+    width: 363px;
+    padding-right: 45px;
 }
 
 header button span[b-r4ssp3n2oj] {
@@ -23,16 +29,19 @@ header a[b-r4ssp3n2oj] {
     font-size: 18px;
 }
 
+header img[b-r4ssp3n2oj]{
+    width:50px;
+    height:50px;
+}
+
 header hr[b-r4ssp3n2oj]{
     margin-top:15px;
 }
 
 .footer[b-r4ssp3n2oj] {
-    /*position: absolute;*/
     bottom: 0;
     width: 100%;
     white-space: nowrap;
-    /*line-height: 10px;*/    
 }
 
 .footer-container[b-r4ssp3n2oj] {
@@ -43,6 +52,12 @@ header hr[b-r4ssp3n2oj]{
 .footer-container a[b-r4ssp3n2oj]{
     display:block;
     font-size: 14px;
+}
+
+.footer-container button[b-r4ssp3n2oj]{
+    display:block;
+    font-size: 14px;
+    height:auto;
 }
 
 .footer-messenger[b-r4ssp3n2oj] {
@@ -63,4 +78,8 @@ header hr[b-r4ssp3n2oj]{
     color: #112A3D;
     font-size: 14px;
     cursor: default;
+}
+
+.footer-enter span[b-r4ssp3n2oj]{
+    font-size:14px;
 }

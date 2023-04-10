@@ -10,9 +10,15 @@
         align-items: center;
     }
 
-.header-link{
-    width:363px;
-    padding-right:45px;
+.btn-none {
+    background: none;
+    color: #0071C2;
+    font-size: 18px;
+}
+
+.header-link {
+    width: 363px;
+    padding-right: 45px;
 }
 
 header button span {
@@ -23,16 +29,19 @@ header a {
     font-size: 18px;
 }
 
+header img{
+    width:50px;
+    height:50px;
+}
+
 header hr{
     margin-top:15px;
 }
 
 .footer {
-    /*position: absolute;*/
     bottom: 0;
     width: 100%;
     white-space: nowrap;
-    /*line-height: 10px;*/    
 }
 
 .footer-container {
@@ -43,6 +52,12 @@ header hr{
 .footer-container a{
     display:block;
     font-size: 14px;
+}
+
+.footer-container button{
+    display:block;
+    font-size: 14px;
+    height:auto;
 }
 
 .footer-messenger {
@@ -63,4 +78,8 @@ header hr{
     color: #112A3D;
     font-size: 14px;
     cursor: default;
+}
+
+.footer-enter span{
+    font-size:14px;
 }

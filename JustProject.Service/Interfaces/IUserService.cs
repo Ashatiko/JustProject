@@ -11,7 +11,11 @@ namespace ProjectAspMvc.Service.Interfaces
 {
     public interface IUserService
     {
-        Task<IBaseResponse<User>> Login(LoginViewModel model);
-        Task<IBaseResponse<bool>> LogOut();
+        Task<IBaseResponse<User>> GetEditUser(AccountViewModel model);
+        Task<IBaseResponse<User>> GetUser();   
+        Task<IEnumerable<UserTests>> GetHistoryTest();
+        Task<bool> Login(LoginViewModel model);
+        Task<bool> LoginTest();
+        Task<bool> LogOut();
     }
 }

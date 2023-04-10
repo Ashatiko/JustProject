@@ -7,18 +7,18 @@
 
 <div class="top-line"></div>
 <div class="d-flex justify-content-between">
-    <div class="personal-cart">
+    <div class="personal-cart">        
         <img src="~/Images/User/personal.png"/>
-        <p>Михаил</p>
-        <hr />        
-        <a href="~/User/Account">Личные данные</a>            
-        <a href="~/User/HistoryTests">История тестов</a>        
+        <p>@Model.Name</p>
+        <hr />
+        <a class="page-a" href="~/User/Account">Личные данные</a>
+        <a class="page-a" href="~/User/HistoryTests">История тестов</a>
         <div>
-            <a href="~/User/Consultation">Констультация</a>
+            <a class="page-a" href="~/User/Consultation">Констультация</a>
             <hr />
-        </div>
-        <a href="~/User/Results">Результаты тестов</a>
-        <button><span>Выйти</span></button>
+        </div>        
+        <a class="page-a" href="~/User/Results">Результаты тестов</a>
+        <a class="btn-link exit" href="~/User/LogOut">Выйти</a>
     </div>
     <div class="personal-data">
         <h2>Консультация</h2>
@@ -27,12 +27,12 @@
             детали и ответит на ваши вопросы</p>
         <form action="#" method="">
             <label>Ваш телефон</label>
-            <input type="text" value=""/>
+            <input type="text" value="@Model.Phone"/>
             <label>Интересующий тест</label>
-            <input type="tel" value=""/>
+            <input type="text" value=""/>
             <button type="submit"><span>Оставить заявку</span></button>
         </form>
 
     </div>
 </div>
-
+<script src="~/js/accountScroll.js"></script>

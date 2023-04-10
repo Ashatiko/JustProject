@@ -1,4 +1,6 @@
-﻿@{
+﻿@model JustProject.Domain.ViewModels.LoginViewModel
+
+@{
     ViewBag.Title = "Авторизация";
 }
 
@@ -15,9 +17,11 @@
         </div>
         <form class="d-grid enter" action="~/User/Login" method="post">
             <label>E-mail</label>
-            <input type="text" name="Email"/>
+            <input type="email" name="Email"/>
+            @Html.ValidationMessageFor(m=>m.Email)
             <label>Пароль</label>
             <input type="password" name="Password"/>            
+            @Html.ValidationMessageFor(m=>m.Password)
 
             <button type="submit">Войти</button>
         </form>

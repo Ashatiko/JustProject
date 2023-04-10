@@ -1,4 +1,5 @@
-﻿
+﻿@model JustProject.Domain.ViewModels.LoginTestViewModel
+
 @{
     ViewBag.Title = "Доступ к тесту";
 }
@@ -10,13 +11,13 @@
         <h1>Доступ к тесту</h1>
         <form class="d-grid enter" action="~/Tests/LoginTest" method="post">
             <label>Логин:</label>
-            <input type="text" value="" />
+            <input type="text" name="Login" />
             <label>Пароль:</label>
-            <input type="password" value="" />
-            <div class="checked d-flex justify-content-between">
-                <input type="checkbox" value="" />
-                <label>Я знаком с условиями доступа</label>
-            </div>
+            <input type="password" name="Password"/>
+            <label class="checked d-flex justify-content-between">
+                <input type="checkbox" name="RememberMe" value="true" />
+                Я знаком с условиями доступа
+            </label>
 
             <button type="submit">Пройти тест</button>
         </form>

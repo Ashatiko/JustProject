@@ -74,9 +74,61 @@
     justify-content:center;
 }
 
+.answer div:first-child{
+    background: #9339FA;
+    color:#fff;
+    position:relative;
+}
+
+.answer div img{
+    position: absolute;
+    bottom: -15px;
+    right: -5px;
+}
+
 form a{
     width:235px;
     margin:0 auto;
     margin-bottom:260px;
     margin-top:40px;
+}
+
+.answers-txt p {
+    padding-bottom: 15px;
+}
+
+.answers-txt div {
+    width: 500px;
+}
+
+.answers-txt div:last-child {
+    width:auto;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.radio {
+    display: grid;
+    height: 123px;
+    width: 123px;
+    border: 1px solid #9339FA;
+    border-radius: 20px;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 130px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+input[type="radio"]:checked + .radio {
+    background-color: #9339FA;
+    color: #fff;
+}
+
+.test form button{
+    width:150px;
+    margin-bottom:230px;
 }

@@ -78,3 +78,4 @@ D:\C#\JustProject\JustProject\obj\Debug\net6.0\refint\JustProject.dll
 D:\C#\JustProject\JustProject\obj\Debug\net6.0\JustProject.pdb
 D:\C#\JustProject\JustProject\obj\Debug\net6.0\JustProject.genruntimeconfig.cache
 D:\C#\JustProject\JustProject\obj\Debug\net6.0\ref\JustProject.dll
+D:\C#\JustProject\JustProject\bin\Debug\net6.0\global.json

@@ -1,4 +1,24 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function scrollToAboutUs() {    
+    window.location.href = "/Home/Index" + "#AboutUs";
+}
 
-// Write your JavaScript code.
+function scrollToContact() {
+    window.location.href = "/Home/Index" + "#contact";
+}
+
+function scrollToTests() {
+    window.location.href = "/Home/Index" + "#tests";
+}
+
+function scrollToInfo() {
+    const targetElement = document.getElementById("info");
+    targetElement.scrollIntoView({ behavior: "smooth" });
+}
+
+function scrollToReviews() {
+    window.location.href = "/Home/Index" + "#reviews";
+}
+
+function scrollToAdvantages() {
+    window.location.href = "/Home/Index" + "#advantages";
+}

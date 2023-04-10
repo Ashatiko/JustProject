@@ -15,5 +15,8 @@ namespace JustProject.DAL
             Database.EnsureCreated();
         }
         public DbSet<User> User { get; set; }
+        public DbSet<UserTests> UserTests { get; set; }
+        public DbSet<UserAllowTest> UserAllowTest { get; set; }
+        public DbSet<TestResult> TestResult { get; set; }
     }
 }
