@@ -9,7 +9,8 @@
 <div class="test">
     <h1>Аналитические способности</h1>
     <form class="d-flex justify-content-center" method="post" action="Analyt">
-        <div>               
+        <div>
+            <input type="hidden" value="@Model" />
             @foreach (var test in Model)
             {
                 <div class="question">

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BOgyCYt8GPIgtWVFkLGPLjTZ6Ky+eaHXnDrhR+zCx0U=",
+  "Hash": "4AsGpcDYRTmdYEmr7aGYDuG4gJnteIqMJhWMpjqGIwY=",
   "Source": "JustProject",
   "BasePath": "_content/JustProject",
   "Mode": "Default",
@@ -425,6 +425,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\telegram.svg"
     },
     {
+      "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\Images\\Test\\basket.png",
+      "SourceId": "JustProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\JustProject\\JustProject\\wwwroot\\",
+      "BasePath": "_content/JustProject",
+      "RelativePath": "Images/Test/basket.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Test\\basket.png"
+    },
+    {
       "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\Images\\Test\\mouse.png",
       "SourceId": "JustProject",
       "SourceType": "Discovered",
@@ -440,6 +457,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Test\\mouse.png"
+    },
+    {
+      "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\Images\\Test\\Star.png",
+      "SourceId": "JustProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\JustProject\\JustProject\\wwwroot\\",
+      "BasePath": "_content/JustProject",
+      "RelativePath": "Images/Test/Star.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Test\\Star.png"
     },
     {
       "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\Images\\User\\personal.png",

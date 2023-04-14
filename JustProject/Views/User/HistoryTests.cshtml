@@ -24,7 +24,10 @@
     <div class="personal-data">
         @if (User.FindFirst(ClaimTypes.UserData)?.Value == "True")
         {
-            <h2>Ваши тесты</h2>
+             <div class="d-flex justify-content-between align-items-baseline">
+                <h2>Ваши тесты</h2>
+                <h5>Приобретение желаемых тестов <a asp-action="BuyTests" asp-controller="Tests">тут</a></h5>
+            </div>
             <div>
                 @for (var i = 0; i < 1; i++)
                 {
@@ -32,18 +35,23 @@
                     {
                         if (i<3)
                         {
-                            <a asp-controller="Tests" asp-action="Example" asp-route-id="@test.Id">
-                                <div class="cart-test">
-                                    <div class="d-flex justify-content-between">
-                                        <h3>@test.NameTest</h3>
-                                        <p class="result">Пройдено на: @test.Complete %</p>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="mb-0">Тип: @test.Type</p>
-                                        <p class="mb-0 data">@test.Date</p>
-                                    </div>
-                                </div>
-                            </a>  
+                            <div>
+                                <a class="cart-test-delete" asp-controller="User"
+                                asp-action="Delete" asp-route-id="@test.Id">Удалить</a>
+                                <a asp-controller="Tests" asp-action="Example" asp-route-id="@test.Id">
+                                    <div class="cart-test">
+                                        <div class="d-flex justify-content-between">
+                                            <h3>@test.NameTest</h3>
+                                            <p class="result">Пройдено на: @test.Complete %</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="mb-0">Тип: @test.Type</p>
+                                            <p class="mb-0 data">@test.Date</p>
+                                        </div>
+                                    </div>                                
+                                </a>                         
+                            </div>
+
                             i++;
                             continue;
                         } 
@@ -59,27 +67,36 @@
                                 i++;
                                 continue;
                             }
-                            <a asp-controller="Tests" asp-action="LoginTest" asp-route-id="@test.Id">
-                                <div class="cart-test">
-                                    <div class="d-flex justify-content-between">
-                                        <h3>@test.NameTest</h3>
-                                        <p class="result">Пройдено на: @test.Complete %</p>
+                            <div>
+                                <a class="cart-test-delete" asp-controller="User"
+                                asp-action="Delete" asp-route-id="@test.Id">Удалить</a>
+                                <a asp-controller="Tests" asp-action="LoginTest" asp-route-id="@test.Id">
+                                    <div class="cart-test">
+                                        <div class="d-flex justify-content-between">
+                                            <h3>@test.NameTest</h3>
+                                            <p class="result">Пройдено на: @test.Complete %</p>
+                                        </div>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="mb-0">Тип: @test.Type</p>
+                                            <p class="mb-0 data">@test.Date</p>
+                                        </div>
                                     </div>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="mb-0">Тип: @test.Type</p>
-                                        <p class="mb-0 data">@test.Date</p>
-                                    </div>
-                                </div>
-                            </a> 
+                                </a> 
+                            </div>
                         }
                     }
                 </div>
             </div>
-            <div class="d-flex justify-content-center">
-                <button class="btn-more" id="btnTests" onclick="tests()">Показать еще</button>
-            </div>
-        }else
-        {
+            if (Model.Count() > 3)
+            {
+                <div class="d-flex justify-content-center">
+                    <button class="btn-more" id="btnTests" onclick="tests()">Показать еще</button>
+                </div>
+            }
+        }
+        
+        else
+        {            
             <h3><a asp-controller="Tests" asp-action="LoginTest">Подтвердите</a> покупку блока тестирования</h3>
         }
     </div>

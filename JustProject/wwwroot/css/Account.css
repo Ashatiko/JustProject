@@ -128,6 +128,14 @@
         margin: 0;
     }
 
+.cart-test-delete {
+    margin-left: 5px;
+}
+
+.cart-test-delete:hover {
+    color:#ff0000;
+}
+
 .data {
     color: #00406F;
 }

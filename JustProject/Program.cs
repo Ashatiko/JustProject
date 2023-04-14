@@ -24,6 +24,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<ITestResultService, TestResultService>();
 builder.Services.AddTransient<IUserTestsService, UserTestsService>();
+builder.Services.AddTransient<ITestsService, TestsService>();
 builder.Services.AddTransient<IUserAllowTestService, UserAllowTestService>();
 builder.Services.AddTransient<IBaseRepository<User>, UserRepository>();
 builder.Services.AddTransient<IBaseRepository<UserTests>, UserTestsRepository>();
@@ -35,7 +36,8 @@ builder.Services.AddScoped<ITestCalculation, TestCalculation>();
 builder.Services.AddScoped<IBaseRepository<User>, UserRepository>();
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<IBaseRepository<UserAllowTest>, UserAllowTestRepository>();
-builder.Services.AddScoped<IBaseRepository<TestResult>, TestResultRepository>();
+builder.Services.AddScoped<TestResultRepository>();
+builder.Services.AddScoped<TestsRepository>();
 
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>

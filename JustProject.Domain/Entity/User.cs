@@ -17,6 +17,7 @@ namespace JustProject.Domain.Entity
         public string Password { get; set; }
         public string Role { get; set; }        
         public int UserTests { get; set; }
+        public bool AuthorizedTest { get; set; }
 
     }
 }

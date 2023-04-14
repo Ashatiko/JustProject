@@ -1,4 +1,5 @@
 ﻿using JustProject.DAL.Interfaces;
+using JustProject.DAL.Repositories;
 using JustProject.Domain.Entity;
 using JustProject.Models.Tests.ViewModel;
 using JustProject.Service.Interfaces;
@@ -13,25 +14,38 @@ namespace JustProject.Service.Implementations
 {
     public class TestResultService : ITestResultService
     {
-        private readonly IBaseRepository<TestResult> _testResultRepository;
-        public TestResultService(IBaseRepository<TestResult> testResultRepository)
+        private readonly TestResultRepository _testResultRepository;
+        public TestResultService(TestResultRepository testResultRepository)
         {
             _testResultRepository = testResultRepository;
         }
 
-        public async Task<bool> SaveStepTest(TestStepViewModel model)
+        public async Task<IEnumerable<TestResult>> GetAll()
         {
-            TestResult test = new TestResult()
+            try
             {
-                NameTest = model.NameTest,
-                FirstStep = model.Step,
-                SecondStep = model.Step,
-                ThirdStep = model.Step,
-                FourthStep = model.Step,
-                Result = model.Result
-            };
-            await _testResultRepository.Create(test);
-            return true;
+                var results = await _testResultRepository.GetAll();
+                return results;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<bool> SaveTest(TestResult model)
+        {
+            var test = (await _testResultRepository.GetAll()).FirstOrDefault(x=>x.NameTest == model.NameTest && x.UserTestId == model.UserTestId);
+            if (test == null)
+            {
+                await _testResultRepository.Create(model);
+                return true;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

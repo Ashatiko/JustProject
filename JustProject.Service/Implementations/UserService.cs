@@ -33,7 +33,31 @@ namespace JustProject.Service.Implementations
             _httpContextAccessor = context;
             _userTestsRepository = userTestsRepository;
         }
-            public async Task<bool> Login(LoginViewModel model)
+
+        public async Task<bool> Register(RegisterViewModel model)
+        {
+            if (model.Email != null || model.Password != null)
+            {
+                User user = new User
+                {
+                    Name = "DefaultName",
+                    Surname = "DefaultSurname",
+                    Patronumic = "DefaultPatronumic",
+                    Phone = 0,
+                    AuthorizedTest = false,
+                    Role = "User",
+                    Email = model.Email,
+                    Password = HashPassword.HashPasswordHelper(model.Password)
+                };
+                if (await _userRepository.Create(user))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public async Task<bool> Login(LoginViewModel model)
         {
             if (model.Email == null || model.Password == null)
             {
@@ -47,7 +71,7 @@ namespace JustProject.Service.Implementations
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.UserData, "False"),
+                    new Claim(ClaimTypes.UserData, Convert.ToString(user.AuthorizedTest)),
                     new Claim(ClaimTypes.Name, user.Name),
                     new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role)                    
             };
@@ -74,14 +98,15 @@ namespace JustProject.Service.Implementations
 
             if (user != null)
             {
-                //user.AuthorizedTest = true;
+                user.AuthorizedTest = true;
+                user.UserTests = user.Id;
                 await _userRepository.Update(user);
 
                 var identity = _httpContextAccessor.HttpContext.User.Identity as ClaimsIdentity;
 
                 identity.RemoveClaim(identity.FindFirst(ClaimTypes.UserData));
 
-                identity.AddClaim(new Claim(ClaimTypes.UserData, "False"));
+                identity.AddClaim(new Claim(ClaimTypes.UserData, Convert.ToString(user.AuthorizedTest)));
 
                 var principal = new ClaimsPrincipal(identity);
 
@@ -94,9 +119,7 @@ namespace JustProject.Service.Implementations
 
         public async Task<IBaseResponse<User>> GetUser()
         {
-            var baseResponse = new BaseResponse<User>();
-            //var user = (await _userRepository.GetAll()).FirstOrDefault(x => x.Email == _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Email).Value);
-            var asd = await _userRepository.GetAll();
+            var baseResponse = new BaseResponse<User>();            
             baseResponse.Data = (await _userRepository.GetAll()).FirstOrDefault(x => x.Email ==  _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Email).Value);
             return baseResponse;
         }
@@ -123,30 +146,73 @@ namespace JustProject.Service.Implementations
             user.Patronumic = fullName[2];
             user.Phone = model.Phone;
             user.Email = model.Email;
-            user.Password = HashPassword.HashPasswordHelper(model.Password);
-            var val = await _userRepository.Update(user);
-            baseResponse.Data = val;            
-            return baseResponse;
+            user.Password = HashPassword.HashPasswordHelper(model.Password);            
+            baseResponse.Data = await _userRepository.Update(user);
+            if (ClaimTypes.Name != fullName[0])
+            {
+                var identity = _httpContextAccessor.HttpContext.User.Identity as ClaimsIdentity;
+
+                identity.RemoveClaim(identity.FindFirst(ClaimTypes.Name));
+
+                identity.AddClaim(new Claim(ClaimTypes.Name, fullName[1]));
+
+                var principal = new ClaimsPrincipal(identity);
+
+                await _httpContextAccessor.HttpContext.SignInAsync(principal);
+            }
+            return baseResponse;            
         }
 
         public async Task<IEnumerable<UserTests>> GetHistoryTest()
         {
             try
             {
-                //var baseResponse = new HistoryTestViewModel();
-                //baseResponse.User = (await _userRepository.GetAll()).FirstOrDefault(x => x.Email == _httpContextAccessor.HttpContext.User.Identity.Name);
-                //var test = (await _userTestsRepository.GetAll()).Where(x => x.Tests == baseResponse.User.Id);
-                //baseResponse.Tests = test;                
-                //return baseResponse;
+                var user = (await _userRepository.GetAll()).FirstOrDefault(x => x.Email == _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Email).Value);                
 
+                return (await _userTestsRepository.GetAll()).Where(x => x.UserTestId == user.UserTests);                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<UserTests>> GetHistoryTestAdd(int id)
+        {
+            try
+            {
                 var user = (await _userRepository.GetAll()).FirstOrDefault(x => x.Email == _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.Email).Value);
 
-                return (await _userTestsRepository.GetAll()).Where(x => x.Tests == user.UserTests);
-                //var baseResponse = new BaseResponse<IEnumerable<UserTests>>();
-                                
-                //var sd = 
-                //baseResponse.Data = sd;
-                //return baseResponse;
+                var ass = (await _userTestsRepository.GetAll()).FirstOrDefault(x=>x.Id == id);
+                ass.UserTestId = user.Id;
+                ass.Complete = 0;
+                ass.Date = DateTime.Now;
+                ass.Id = Convert.ToInt32(null);
+                await _userTestsRepository.Create(ass);
+                return (await _userTestsRepository.GetAll()).Where(x => x.UserTestId == user.UserTests);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public async Task<bool> GetHistoryTestDelete(int id)
+        {
+            try
+            {
+                var test = (await _userTestsRepository.GetAll()).FirstOrDefault(x => x.Id == id);
+                if (test == null)
+                {
+                    return false;
+                }
+                if (await _userTestsRepository.Delete(test))
+                {
+                    return true;
+                }
+                return false;
             }
             catch (Exception)
             {

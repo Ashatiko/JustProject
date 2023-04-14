@@ -12,7 +12,8 @@ namespace JustProject.Service.Interfaces
 {
     public interface IUserTestsService
     {
-        Task<IBaseResponse<IEnumerable<UserTests>>> GetAll();        
+        Task<IEnumerable<UserTests>> GetAll();
+        Task<UserTests> Get(int id);
 
     }
 }

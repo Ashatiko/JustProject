@@ -5,6 +5,7 @@ using JustProject.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ProjectAspMvc.Service.Interfaces;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace JustProject.Controllers
 {
@@ -14,12 +15,14 @@ namespace JustProject.Controllers
         private readonly IUserService _userService;
         private readonly IUserAllowTestService _allowTest;
         private readonly ITestCalculation _testCalculation;
-        public TestsController(IUserTestsService userTests, IUserAllowTestService allowTest, IUserService userService, ITestCalculation testCalculation)
+        private readonly ITestsService _testsService;
+        public TestsController(IUserTestsService userTests, IUserAllowTestService allowTest, IUserService userService, ITestCalculation testCalculation, ITestsService testsService)
         {
             _userTests = userTests;
             _allowTest = allowTest;
             _userService = userService;
-            _testCalculation = testCalculation; 
+            _testCalculation = testCalculation;
+            _testsService = testsService;
         }
 
         [HttpGet]
@@ -52,8 +55,9 @@ namespace JustProject.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Analyt()
+        public async Task<IActionResult> Analyt(int id)
         {
+            var asd = new { SchoolTest.TestsViewModel.AnalyticSkills, id };
             return View(SchoolTest.TestsViewModel.AnalyticSkills);
         }
 
@@ -84,9 +88,39 @@ namespace JustProject.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Example()
+        public async Task<IActionResult> Example(int id)
         {
-            return View();
+            var test = await _userTests.Get(id);
+            if (test.Complete == 0)
+            {
+                await _testCalculation.CreateResult(id, test.NameTest);
+                return View(id);
+            }
+            switch (test.NameTest)
+            {
+                case "Мотивация":                    
+                    return RedirectToAction("Analyt", "Tests", test.NameTest);
+                    break;
+                case "Социальные качества":                    
+                    return RedirectToAction("Verbal", "Tests");
+                    break;
+                case "Личностные качества":                    
+                    return RedirectToAction("Analyt", "Tests");
+                    break;
+                case "Сила воли":                    
+                    return RedirectToAction("Analyt", "Tests");
+                    break;
+                default:
+                    return View();
+                    break;
+            }            
         }
+
+        [HttpGet]
+        public async Task<IActionResult> BuyTests()
+        {
+            var tests = await _testsService.GetAll();
+            return View(tests);
+        }        
     }
 }

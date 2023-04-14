@@ -132,3 +132,34 @@ input[type="radio"]:checked + .radio {
     width:150px;
     margin-bottom:230px;
 }
+
+.tariff {
+    padding-top: 160px;
+    padding-bottom: 75px;    
+}
+
+.tariff h1{
+    font-size:48px;
+}
+
+.tariff-cart {
+    padding: 75px 120px;
+    border-radius: 50px;
+    border: 1px solid #00528D;
+    width: 1100px;
+    height: 380px;    
+    margin: auto auto 100px auto;
+}
+
+.tariff-cart p{
+    color: #00528D;
+    width:650px;
+}
+
+.tariff-cart img{
+    height:50px;
+}
+
+.tariff-txt{
+    padding-bottom:160px;
+}

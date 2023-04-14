@@ -1,12 +1,15 @@
 ﻿using JustProject.Domain.Response;
 using JustProject.Domain.ViewModels;
+using JustProject.Service.Implementations;
 using JustProject.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ProjectAspMvc.Service.Interfaces;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace JustProject.Controllers
 {
+    
     public class UserController : Controller
     {
         private readonly IUserService _userService;
@@ -17,13 +20,13 @@ namespace JustProject.Controllers
             _userTests = userTests;
         }
 
-        [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult> Login()
         {
             return View();
         }
 
-        [HttpGet]
+        [HttpGet]        
         public async Task<ActionResult> LogOut()
         {
             var auther = await _userService.LogOut();
@@ -31,7 +34,9 @@ namespace JustProject.Controllers
             return RedirectToAction("Account", "User");
         }
 
-        [HttpPost]        
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
@@ -64,9 +69,14 @@ namespace JustProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(string models)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            return RedirectToAction("Account", "User");
+            if (ModelState.IsValid)
+            {
+                await _userService.Register(model);
+                return RedirectToAction("Login", "User");
+            }
+            return View(model);
         }
 
 
@@ -78,21 +88,38 @@ namespace JustProject.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> HistoryTests()
-        {            
-            var tests = await _userService.GetHistoryTest();
+        public async Task<IActionResult> HistoryTests(int id)
+        {
+            if (id == 0)
+            {
+                var tests = await _userService.GetHistoryTest();
 
-            return View(tests);
+                return View(tests);
+            }
+            var testsAdd = await _userService.GetHistoryTestAdd(id);
+
+            return View(testsAdd);
         }
 
         [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var tests = await _userService.GetHistoryTestDelete(id);
+            if (tests == true)
+            {
+                return RedirectToAction("HistoryTests");
+            }
+            return RedirectToAction("HistoryTests");
+        }
+
+        [Authorize]        
         public async Task<IActionResult> Results()
         {
             var user = await _userService.GetUser();
             return View(user.Data);
         }
 
-        [HttpGet]
+        
         public async Task<IActionResult> Consultation()
         {
             var user = await _userService.GetUser();

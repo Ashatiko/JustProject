@@ -1,4 +1,5 @@
-﻿
+﻿@model int;
+
 @{
     ViewBag.Title = "Пример";
 }
@@ -19,5 +20,5 @@
         <div><span>Виктор</span></div>
         <div><span>Владимир</span></div>
     </div>    
-    <a class="btn-link" href="~/Tests/Analyt">Пройти тест</a>
+    <a class="btn-link" asp-action="Analyt" asp-controller="Tests" asp-route-id="@Model">Пройти тест</a>
 </div>

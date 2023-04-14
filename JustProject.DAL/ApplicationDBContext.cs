@@ -18,5 +18,6 @@ namespace JustProject.DAL
         public DbSet<UserTests> UserTests { get; set; }
         public DbSet<UserAllowTest> UserAllowTest { get; set; }
         public DbSet<TestResult> TestResult { get; set; }
+        public DbSet<Tests> Tests { get; set; }
     }
 }

@@ -26,13 +26,11 @@
                         <button class="btn-none" onclick="scrollToTests()">Тестирование</button>
                     </div>                            
                     @if (User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("Manager"))
-                    {
-                        @*<a class="btn-link" href="/User/Account"><span>Личный кабинет</span></a>  *@      
+                    {                             
                         <a asp-controller="User" asp-action="Account">
                             <img src="~/Images/landing/user.png">
                             @User.Identity.Name
-                        </a>
-                            
+                        </a>                            
                     }                    
                     else
                     {
