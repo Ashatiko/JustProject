@@ -29,9 +29,9 @@ namespace JustProject.DAL.Repositories
             return true;
         }
 
-        public async Task<IQueryable<UserTests>> GetAll()
+        public Task<IQueryable<UserTests>> GetAll()
         {
-            return _context.UserTests.AsQueryable();
+            return Task.FromResult(_context.UserTests.AsQueryable());
         }
 
         public async Task<UserTests> Update(UserTests entity)

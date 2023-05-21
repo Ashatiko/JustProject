@@ -49,5 +49,11 @@ namespace JustProject.Service.Implementations
                 throw;
             }
         }
+
+        public async Task<bool> Update(UserTests userTests)
+        {
+            var sd = await _userTestsRepository.Update(userTests);
+            return true;
+        }
     }
 }

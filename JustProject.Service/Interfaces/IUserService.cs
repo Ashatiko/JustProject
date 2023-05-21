@@ -4,6 +4,7 @@ using JustProject.Domain.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,7 +17,7 @@ namespace ProjectAspMvc.Service.Interfaces
         Task<IEnumerable<UserTests>> GetHistoryTest();
         Task<IEnumerable<UserTests>> GetHistoryTestAdd(int id);
         Task<bool> GetHistoryTestDelete(int id);
-        Task<bool> Login(LoginViewModel model);
+        Task<string> Login(LoginViewModel model);
         Task<bool> Register(RegisterViewModel model);
         Task<bool> LoginTest();
         Task<bool> LogOut();        

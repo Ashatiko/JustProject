@@ -1,14 +1,16 @@
-﻿using JustProject.Domain.ViewModels;
+﻿using JustProject.Domain.Entity;
+using JustProject.Domain.ViewModels;
 using JustProject.Models.Tests;
-using JustProject.Service.Implementations;
+using JustProject.Models.Tests.Interfaces;
 using JustProject.Service.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using ProjectAspMvc.Service.Interfaces;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace JustProject.Controllers
 {
+    [Authorize]
     public class TestsController : Controller
     {
         private readonly IUserTestsService _userTests;
@@ -16,13 +18,16 @@ namespace JustProject.Controllers
         private readonly IUserAllowTestService _allowTest;
         private readonly ITestCalculation _testCalculation;
         private readonly ITestsService _testsService;
-        public TestsController(IUserTestsService userTests, IUserAllowTestService allowTest, IUserService userService, ITestCalculation testCalculation, ITestsService testsService)
+        private readonly ITestResultService _resultService;
+        
+        public TestsController(IUserTestsService userTests, IUserAllowTestService allowTest, IUserService userService, ITestCalculation testCalculation, ITestsService testsService, ITestResultService resultService)
         {
             _userTests = userTests;
             _allowTest = allowTest;
             _userService = userService;
             _testCalculation = testCalculation;
             _testsService = testsService;
+            _resultService = resultService;
         }
 
         [HttpGet]
@@ -49,78 +54,114 @@ namespace JustProject.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> TypeTest()
+        public async Task<IActionResult> TypeTest(int id)
         {
-            return View();
+            TempData["TestIdBuy"] = id;
+            var test = await _testsService.GetTest(id);
+            return View(test);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Analyt(int id)
+        public async Task<IActionResult> MotivationTest()
         {
-            var asd = new { SchoolTest.TestsViewModel.AnalyticSkills, id };
-            return View(SchoolTest.TestsViewModel.AnalyticSkills);
+            ViewData["Step"] = "first";
+            return View(SchoolTest.TestsViewModel);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Analyt(IFormCollection model )
+        public async Task<IActionResult> Result()
         {
-            if (await _testCalculation.SaveStepTest(model, "Analytical") == true)
-            {
-                return RedirectToAction("Verbal","Tests");
-            }
-            return View(SchoolTest.TestsViewModel.AnalyticSkills);
-        }
+            int? id = HttpContext.Session.GetInt32("ID");
 
-        [HttpGet]
-        public async Task<IActionResult> Verbal()
-        {
-            return View(SchoolTest.TestsViewModel.VerbalSkills);
+            var test = await _resultService.Get((int)id);
+            return View(test);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Verbal(IFormCollection model)
-        {
-            if (await _testCalculation.SaveStepTest(model, "Verbal") == true)
+        public async Task<IActionResult> MotivationTest(IFormCollection model, string stepName)
+        {            
+            var test = await _userTests.Get((int)HttpContext.Session.GetInt32("ID"));            
+            await _testCalculation.SaveStepTest(model, test.NameTest, test.Id);
+            if (stepName == "first")
             {
-                return RedirectToAction("Verbal", "Tests");
+                ViewData["Step"] = "second";
             }
-            return View(SchoolTest.TestsViewModel.AnalyticSkills);
+            else if (stepName == "second")
+            {
+                ViewData["Step"] = "third";
+            }
+            else if (stepName == "third")
+            {
+                ViewData["Step"] = "fourth"; 
+            }
+            else if (stepName == "fourth")
+            {
+                return RedirectToAction("Result","Tests");
+            }
+            return View(SchoolTest.TestsViewModel);
         }
 
         [HttpGet]
         public async Task<IActionResult> Example(int id)
         {
-            var test = await _userTests.Get(id);
-            if (test.Complete == 0)
+            var test = await _userTests.Get(id);            
+            HttpContext.Session.SetInt32("ID", id);
+            if (test.Complete == 100)
             {
-                await _testCalculation.CreateResult(id, test.NameTest);
-                return View(id);
+                return RedirectToAction("Result", "Tests");
             }
-            switch (test.NameTest)
-            {
-                case "Мотивация":                    
-                    return RedirectToAction("Analyt", "Tests", test.NameTest);
-                    break;
-                case "Социальные качества":                    
-                    return RedirectToAction("Verbal", "Tests");
-                    break;
-                case "Личностные качества":                    
-                    return RedirectToAction("Analyt", "Tests");
-                    break;
-                case "Сила воли":                    
-                    return RedirectToAction("Analyt", "Tests");
-                    break;
-                default:
-                    return View();
-                    break;
-            }            
+            return View();            
         }
 
         [HttpGet]
-        public async Task<IActionResult> BuyTests()
+        public async Task<IActionResult> StartTest()
         {
-            var tests = await _testsService.GetAll();
-            return View(tests);
-        }        
+            var test = await _userTests.Get((int)HttpContext.Session.GetInt32("ID"));            
+            switch (test.NameTest)
+            {
+                case "Мотивация":
+                    return RedirectToAction("MotivationTest", "Tests");
+                case "Социальные качества":
+                    return RedirectToAction("Verbal", "Tests");
+                case "Личностные качества":
+                    return RedirectToAction("Analyt", "Tests");
+                case "Сила воли":
+                    return RedirectToAction("Analyt", "Tests");
+                default:
+                    return View();
+            }
+        }
+        
+        [AllowAnonymous]
+        public async Task<IActionResult> BuyTests(string type)
+        {
+            IEnumerable<Tests> typeTest;
+            if (type != null)
+            {
+                HttpContext.Session.SetString("Type", type);
+            }
+            ViewData["Request"] = HttpContext.Session.GetString("Type");
+            switch (HttpContext.Session.GetString("Type"))
+            {
+                case "Специалисты":
+                    typeTest = await _testsService.GetSpecialist();
+                    break;
+                case "Школьники":
+                    typeTest = await _testsService.GetSchool();
+                    break;
+                case "Организация":
+                    typeTest = await _testsService.GetSet();
+                    break;
+                default:
+                    typeTest = await _testsService.GetSpecialist();
+                    break;
+            }
+            return View(typeTest );
+        }
+
+        [AllowAnonymous]
+        public async Task<RedirectToActionResult> BuyTestsType(string type)
+        {            
+            HttpContext.Session.SetString("Type", type);
+            return RedirectToAction("BuyTests","Tests");
+        }
     }
 }

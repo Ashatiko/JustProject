@@ -5,15 +5,21 @@
     margin:0 auto;
 }
 
-    .btn-link span {
-        padding: 0 60px 0 60px;
-        align-items: center;
-    }
+
+    
+    
 
 .btn-none {
     background: none;
     color: #0071C2;
     font-size: 18px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-none:hover {
+    box-shadow: none;
+    color: #0068b2;
+    font-size: 20px;
 }
 
 .header-link {
@@ -25,9 +31,6 @@ header button span {
     padding: 0 60px 0 60px;
 }
 
-header a {
-    font-size: 18px;
-}
 
 header img{
     width:50px;
@@ -51,7 +54,12 @@ header hr{
 
 .footer-container a{
     display:block;
-    font-size: 14px;
+    font-size: 14px;    
+}
+
+.footer-container a:hover {
+    color:#0068b2;
+    font-size: 16px;
 }
 
 .footer-container button{
@@ -60,14 +68,23 @@ header hr{
     height:auto;
 }
 
+.footer-container button:hover {    
+    font-size: 16px;    
+}
+
 .footer-messenger {
     width: 130px;
     padding-top:35px;
 }
 
-.footer-link{
+.footer-messenger a {    
+    height:10px;
+}
+
+.footer-links {
     width: 345px;
-    padding-top:10px;
+    padding-top: 10px;
+    height: 110px;
 }
 
 .footer-info{
@@ -80,6 +97,17 @@ header hr{
     cursor: default;
 }
 
-.footer-enter span{
-    font-size:14px;
+.footer-link span {
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+    display:flex
+}
+
+.footer-link span:hover {
+    font-size: 16px;
+    color:#0071C2;
+}
+
+.footer-link-block{
+    width:90px;
 }

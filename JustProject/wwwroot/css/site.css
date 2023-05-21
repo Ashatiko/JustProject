@@ -40,6 +40,36 @@ button {
     font-size: 16px;
     border-radius: 50px;
     height: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #0068b2;
+    box-shadow: 0px 0px 15px 5px #C2DCEE;
+}
+
+.btn-link {
+    background: #0071C2;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-link span {
+    padding: 0 60px 0 60px;
+    align-items: center;
+}
+
+.btn-link:hover {        
+    color: #ffffff;
+    background: #0068b2;
+    box-shadow: 0px 0px 15px 5px #C2DCEE;
 }
 
 hr {
@@ -56,18 +86,6 @@ a {
 
 p {
     font-size: 18px;
-}
-
-.btn-link {
-    background: #0071C2;
-    color: #ffffff;
-    font-size: 16px;
-    border-radius: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    text-decoration:none;
-    justify-content:center;
 }
 
 h1{

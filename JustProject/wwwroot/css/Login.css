@@ -42,9 +42,15 @@
     text-align:left;
 }
 
+.enter p{
+    text-align:center;
+    padding-bottom:170px;
+    padding-top:50px;
+}
+
 .enter button {
     width: 235px;
-    margin: 30px auto 200px auto;
+    margin: 30px auto 0 auto;
 }
 
 .checked {
@@ -63,4 +69,8 @@
     display: flex;
     height: 20px;
     color: #006BB9;
+}
+
+.login-container{
+    height:800px;
 }

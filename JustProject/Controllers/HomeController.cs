@@ -1,4 +1,5 @@
 ﻿using JustProject.Models;
+using JustProject.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,15 +8,17 @@ namespace JustProject.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IReviewsService _service;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IReviewsService service)
         {
             _logger = logger;
+            _service = service;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View( await _service.GetReviews());
         }
 
         public IActionResult Privacy()

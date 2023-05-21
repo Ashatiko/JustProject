@@ -29,13 +29,13 @@
             <label>E-mail</label>
             <input type="email" id="userData" name="Email" value="@Model.Email"
             pattern="[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2,}$" />
-            <label>Пароль</label>
+            @*<label>Пароль</label>
             <input type="password" id="userData" name="Password" value="" 
-            minlength="6"/>
+            minlength="6"/>*@
             <label>Телефон</label>
-            <input type="text" id="userData" name="Phone" value="@Model.Phone"/>
+            <input type="text" id="userData" name="Phone" class="mb-5" value="@Model.Phone"/>
             <div>
-                <button type="submit" id="resetBtn" name="resetBtn"><span>Сохранить изменения</span></button>    
+                <button type="submit" id="resetBtn" name="resetBtn" class="mt-5"><span>Сохранить изменения</span></button>    
                 <button type="reset" id="resetBtn" name="resetBtn" class="btn-changes-end"><span>Отменить изменения</span></button>
             </div>
         </form>        

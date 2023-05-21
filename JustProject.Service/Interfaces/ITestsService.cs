@@ -10,5 +10,9 @@ namespace JustProject.Service.Interfaces
     public interface ITestsService
     {
         Task<IEnumerable<Tests>> GetAll();
+        Task<IEnumerable<Tests>> GetSchool();
+        Task<IEnumerable<Tests>> GetSet();
+        Task<IEnumerable<Tests>> GetSpecialist();
+        Task<Tests> GetTest(int id);
     }
 }

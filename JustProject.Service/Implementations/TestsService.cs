@@ -20,5 +20,25 @@ namespace JustProject.Service.Implementations
         {
             return await _repository.GetAll();
         }
+
+        public async Task<IEnumerable<Tests>> GetSchool()
+        {
+            return (await _repository.GetAll()).Where(x=>x.Type == "Школьник");
+        }
+
+        public async Task<IEnumerable<Tests>> GetSet()
+        {
+            return (await _repository.GetAll()).Where(x => x.Type == "Организация");
+        }
+
+        public async Task<IEnumerable<Tests>> GetSpecialist()
+        {
+            return (await _repository.GetAll()).Where(x => x.Type == "Специалисты");
+        }
+
+        public async Task<Tests> GetTest(int id)
+        {
+            return (await _repository.GetAll()).FirstOrDefault(test => test.Id == id);
+        }
     }
 }

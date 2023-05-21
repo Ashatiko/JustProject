@@ -163,3 +163,61 @@ input[type="radio"]:checked + .radio {
 .tariff-txt{
     padding-bottom:160px;
 }
+
+.result b{
+    font-size:24px;
+    padding-bottom:10px;
+}
+
+.result p {
+    font-size: 20px;
+}
+
+.result h1 {
+    padding-top: 130px;
+    padding-bottom: 65px;
+    font-size: 72px;
+}
+
+.result-jobs {
+    padding-top: 100px;    
+    padding-bottom: 150px;
+}
+
+.result-btn {
+    width: 620px;
+    padding-top: 70px;
+    padding-bottom: 240px;    
+}
+
+.result-btn a{
+    width: 275px;
+}
+
+.result table th, td {
+    border: 1px solid #006BB9;
+}
+
+.result table th {
+    text-align: center;
+    width:95px;
+}
+
+.result table td {
+    padding-left:80px;
+}
+
+.result table th:first-child {
+    width: 420px;
+}
+
+.result table {
+    min-height: 480px;
+    color: #00345A;
+}
+
+.result-value th{
+    width:760px;
+    text-align:left; 
+    margin-left:40px;
+}

@@ -9,8 +9,7 @@ namespace JustProject.Domain.ViewModels
     public class AccountViewModel
     {
         public string FullName { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public string Email { get; set; }        
         public decimal Phone { get; set; } 
     }
 }

@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>WinExe</OutputType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -16,14 +17,41 @@
 
   <ItemGroup>
     
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0-preview.2.23128.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0-preview.2.23128.3" />
+    <PackageReference Include="JWT" Version="10.0.2" />
+    
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.16" />
+    
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.16" />
+    
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0-preview.3.23174.2" />
+    
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0-preview.3.23174.2" />
+    
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.30.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\JustProject.DAL\JustProject.DAL.csproj" />
     <ProjectReference Include="..\JustProject.Domain\JustProject.Domain.csproj" />
     <ProjectReference Include="..\JustProject.Service\JustProject.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Accounts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
 </Project>

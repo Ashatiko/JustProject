@@ -39,12 +39,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/C\#/JustProject/JustProject/Views/Tests/Analyt.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcQW5hbHl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/C\#/JustProject/JustProject/Views/Tests/BuyTests.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcQnV5VGVzdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/JustProject/JustProject/Views/Tests/BuyTestsOrg.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcQnV5VGVzdHNPcmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/JustProject/JustProject/Views/Tests/BuyTestsSchool.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcQnV5VGVzdHNTY2hvb2wuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/C\#/JustProject/JustProject/Views/Tests/Example.cshtml]
@@ -55,12 +59,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcTG9naW5UZXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/C\#/JustProject/JustProject/Views/Tests/TypeTest.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcVHlwZVRlc3QuY3NodG1s
+[D:/C\#/JustProject/JustProject/Views/Tests/MotivationTest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcTW90aXZhdGlvblRlc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/C\#/JustProject/JustProject/Views/Tests/Verbal.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcVmVyYmFsLmNzaHRtbA==
+[D:/C\#/JustProject/JustProject/Views/Tests/Result.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcUmVzdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/C\#/JustProject/JustProject/Views/Tests/TypeTest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcVHlwZVRlc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/C\#/JustProject/JustProject/Views/User/Account.cshtml]

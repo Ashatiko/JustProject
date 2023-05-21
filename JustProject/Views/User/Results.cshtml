@@ -1,5 +1,4 @@
-﻿@model JustProject.Domain.Entity.User
-
+﻿
 @{
     ViewBag.Title = "Результаты тестов";
 }
@@ -10,7 +9,7 @@
 <div class="d-flex justify-content-between">
     <div class="personal-cart">
         <img src="~/Images/User/personal.png"/>
-        <p>@Model.Name</p>
+        <p>@User.Identity.Name</p>
         <hr />
         <a class="page-a" href="~/User/Account">Личные данные</a>        
         <a class="page-a" href="~/User/HistoryTests">История тестов</a>

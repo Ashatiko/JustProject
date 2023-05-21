@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustProject", "JustProject\JustProject.csproj", "{DC103B6E-E9DF-4350-B367-B379CECE1252}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JustProject", "JustProject\JustProject.csproj", "{DC103B6E-E9DF-4350-B367-B379CECE1252}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{CC03FCCB-3939-4625-9ACC-0B343F7E6B1D}"
 EndProject
@@ -11,11 +11,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{E7EC41
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{429FCAEC-389F-4ACF-A2F6-096641106EF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustProject.DAL", "JustProject.DAL\JustProject.DAL.csproj", "{FD261D52-8CD6-4D2A-AA43-63BC84A77C13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JustProject.DAL", "JustProject.DAL\JustProject.DAL.csproj", "{FD261D52-8CD6-4D2A-AA43-63BC84A77C13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustProject.Domain", "JustProject.Domain\JustProject.Domain.csproj", "{D266BFB6-2B87-43CA-919A-9FD89ECBA701}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JustProject.Domain", "JustProject.Domain\JustProject.Domain.csproj", "{D266BFB6-2B87-43CA-919A-9FD89ECBA701}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustProject.Service", "JustProject.Service\JustProject.Service.csproj", "{3C152E22-D38D-47FC-B34A-876CAD7FDDCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JustProject.Service", "JustProject.Service\JustProject.Service.csproj", "{3C152E22-D38D-47FC-B34A-876CAD7FDDCF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E5E1134F-A57A-4989-94B3-2BCAC623F937}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

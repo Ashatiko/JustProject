@@ -20,6 +20,11 @@ namespace JustProject.Service.Implementations
             _testResultRepository = testResultRepository;
         }
 
+        public async Task<TestResult> Get(int id)
+        {
+            return (await _testResultRepository.GetAll()).FirstOrDefault(x=>x.TestId == id);
+        }
+
         public async Task<IEnumerable<TestResult>> GetAll()
         {
             try
@@ -36,7 +41,7 @@ namespace JustProject.Service.Implementations
 
         public async Task<bool> SaveTest(TestResult model)
         {
-            var test = (await _testResultRepository.GetAll()).FirstOrDefault(x=>x.NameTest == model.NameTest && x.UserTestId == model.UserTestId);
+            var test = (await _testResultRepository.GetAll()).FirstOrDefault(x=>x.Id == model.TestId);
             if (test == null)
             {
                 await _testResultRepository.Create(model);
@@ -44,8 +49,14 @@ namespace JustProject.Service.Implementations
             }
             else
             {
-                return true;
+                return false;
             }
+        }
+
+        public async Task<bool> Update(TestResult testVal)
+        {
+            await _testResultRepository.Update(testVal);
+            return true;
         }
     }
 }

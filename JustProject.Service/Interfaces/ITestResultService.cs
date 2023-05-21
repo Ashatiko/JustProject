@@ -13,5 +13,7 @@ namespace JustProject.Service.Interfaces
     {
         Task<bool> SaveTest(TestResult model);
         Task<IEnumerable<TestResult>> GetAll();
+        Task<TestResult> Get(int id);
+        Task<bool> Update(TestResult testVal);
     }
 }

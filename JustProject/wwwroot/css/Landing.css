@@ -91,6 +91,11 @@
     margin: 10px;
     color: #0071C2;
     text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.section-3-cart:hover {
+    box-shadow: 0px 0px 15px 5px #C2DCEE;
 }
 
 .section-3-cart img{
@@ -232,15 +237,15 @@
 
 .section-6-cart {
     border: 1px solid #0071C2;
-    width: 490px;
+    width: 413px;
     height: 495px;
     border-radius: 15px;
-    margin: 10px;
+    margin: auto 10px;
     color: #0071C2;
     text-align: center;
     padding: 50px;
     text-align: left;
-    color: #00508A;
+    color: #00508A;    
 }
 
 .section-6-cart .top-info{
@@ -287,6 +292,55 @@
 .map{
     margin: 0 auto;
     height:415px;
-    width: 1000px;
-    border: 1px solid #000000;
+    width: 1000px;    
+    overflow:hidden;
+}
+
+/*слайдер*/
+
+.slider {
+    width: 100%;      
+    overflow: hidden;
+}
+
+.slider-line {
+    display: flex;
+    position: relative;    
+    justify-content: center;
+    left:0;
+    transition: all ease 1s;
+}
+
+.slider-next {
+    background: none;    
+}
+
+.slider-prev {
+    background: none;    
+}
+
+.slider-next:hover {    
+    background: none;
+    box-shadow: none;
+}
+
+.slider-prev:hover {
+    background: none;
+    box-shadow: none;
+}
+
+.slider-next img {
+    transition: all 0.3s ease-in-out;
+}
+
+.slider-next img:hover {
+    filter: brightness(50%) hue-rotate(30deg);    
+}
+
+.slider-prev img {
+    transition: all 0.3s ease-in-out;
+}
+
+.slider-prev img:hover {
+    filter: brightness(50%) hue-rotate(30deg);        
 }
