@@ -99,45 +99,6 @@ namespace JustProject.Service.Implementations
             return null;
         }
 
-        //var identity = new ClaimsIdentity(claims, "Token");
-        //User.Identity = new ClaimsPrincipal(identity);
-
-        //var authenticationProperties = new AuthenticationProperties();
-        //authenticationProperties.StoreTokens(new[]
-        //{
-        //    new AuthenticationToken { Name = "access_token", Value = token }
-        //});
-        //await _httpContextAccessor.HttpContext.SignInAsync("Token", new ClaimsPrincipal(identity), authenticationProperties);
-
-        //public async Task<ClaimsPrincipal> Login(LoginViewModel model)
-        //{
-        //    if (string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Password))
-        //    {
-        //        return null;
-        //    }
-
-        //    var user = (await _userRepository.GetAll()).FirstOrDefault(x => x.Email == model.Email && x.Password == HashPassword.HashPasswordHelper(model.Password));
-
-        //    if (user != null)
-        //    {
-        //        var claims = new List<Claim>
-        //        {
-        //            new Claim(ClaimTypes.Email, user.Email),
-        //            new Claim(ClaimTypes.UserData, Convert.ToString(user.AuthorizedTest)),
-        //            new Claim(ClaimsIdentity.DefaultNameClaimType, user.Name),
-        //            new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role),
-        //    };
-
-        //        var claimsIdentity = new ClaimsIdentity(claims, "Cookies", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
-
-        //        var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-        //        await _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-
-        //        return claimsPrincipal;
-        //    }
-        //    return null;
-        //}
-
         public async Task<bool> LogOut()
         {
             await _httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
