@@ -5,6 +5,7 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = JustProject
 build_property.RootNamespace = JustProject
@@ -43,12 +44,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcQnV5VGVzdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/C\#/JustProject/JustProject/Views/Tests/BuyTestsOrg.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcQnV5VGVzdHNPcmcuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/C\#/JustProject/JustProject/Views/Tests/BuyTestsSchool.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcQnV5VGVzdHNTY2hvb2wuY3NodG1s
+[D:/C\#/JustProject/JustProject/Views/Tests/CommonTest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcQ29tbW9uVGVzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/C\#/JustProject/JustProject/Views/Tests/Example.cshtml]
@@ -57,10 +54,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/C\#/JustProject/JustProject/Views/Tests/LoginTest.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcTG9naW5UZXN0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/C\#/JustProject/JustProject/Views/Tests/MotivationTest.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVzdHNcTW90aXZhdGlvblRlc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/C\#/JustProject/JustProject/Views/Tests/Result.cshtml]

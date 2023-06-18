@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "m3gApaeHYqvml0E3hVU4HBJ7+U8qu+WUIYspB690dlDNvGhMduO0WqXpwW0z/X34t3ywDAHgJGsofwEYqNGY8Q==",
+  "dgSpecHash": "BBb7NdiWilKC1VTLrt3+vAXDwf2ZCaHXAo+F9JE8F53R65TNsRNJgFw0SQQM6Ry6fc6GZSy1Y8JzFDkspeaFUA==",
   "success": true,
   "projectFilePath": "D:\\C#\\JustProject\\JustProject.Service\\JustProject.Service.csproj",
   "expectedPackageFiles": [
@@ -38,7 +38,10 @@
     "C:\\Users\\Днс\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
     "C:\\Users\\Днс\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\Днс\\.nuget\\packages\\system.text.encodings.web\\4.7.2\\system.text.encodings.web.4.7.2.nupkg.sha512",
-    "C:\\Users\\Днс\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+    "C:\\Users\\Днс\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
+    "C:\\Users\\Днс\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.14\\microsoft.windowsdesktop.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\Днс\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.14\\microsoft.netcore.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\Днс\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.14\\microsoft.aspnetcore.app.ref.6.0.14.nupkg.sha512"
   ],
   "logs": []
 }

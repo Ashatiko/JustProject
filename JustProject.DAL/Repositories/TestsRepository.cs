@@ -1,5 +1,5 @@
 ﻿using JustProject.DAL.Interfaces;
-using JustProject.Domain.Entity;
+using JustProject.Domain.Entity.Test;
 using System;
 using System.Collections.Generic;
 using System.Linq;

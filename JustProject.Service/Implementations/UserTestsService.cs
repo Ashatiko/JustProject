@@ -50,6 +50,11 @@ namespace JustProject.Service.Implementations
             }
         }
 
+        public async Task<string> GetName(int id)
+        {
+            return (await _userTestsRepository.GetAll()).FirstOrDefault(x=>x.Id == id).NameTest;
+        }
+
         public async Task<bool> Update(UserTests userTests)
         {
             var sd = await _userTestsRepository.Update(userTests);

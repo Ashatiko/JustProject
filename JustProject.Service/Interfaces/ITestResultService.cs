@@ -1,11 +1,4 @@
 ﻿using JustProject.Domain.Entity;
-using JustProject.Models.Tests.ViewModel;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JustProject.Service.Interfaces
 {
@@ -13,7 +6,8 @@ namespace JustProject.Service.Interfaces
     {
         Task<bool> SaveTest(TestResult model);
         Task<IEnumerable<TestResult>> GetAll();
-        Task<TestResult> Get(int id);
+        Task<TestResult> Get(int userTestId);
+        Task<TestResult> Get(int testId, int userTestId);
         Task<bool> Update(TestResult testVal);
     }
 }

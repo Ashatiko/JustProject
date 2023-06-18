@@ -1,9 +1,13 @@
 ﻿using JustProject.Domain.ViewModels;
 using JustProject.Service.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
 using ProjectAspMvc.Service.Interfaces;
+using JustProject.Domain.Entity;
+using Microsoft.AspNetCore.Authentication.Google;
+using AspNet.Security.OAuth.Vkontakte;
 
 namespace JustProject.Controllers
 {
@@ -12,13 +16,13 @@ namespace JustProject.Controllers
     {
         private readonly IUserService _userService;
         private readonly IUserTestsService _userTests;
-        private readonly ILogger<UserController> _logger;        
-
+        private readonly ILogger<UserController> _logger;
+        
         public UserController(IUserService userService, IUserTestsService userTests, ILogger<UserController> logger)
         {
             _userService = userService;
             _userTests = userTests;
-            _logger = logger;
+            _logger = logger;            
         }
 
         [AllowAnonymous]
@@ -42,22 +46,81 @@ namespace JustProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                string token = await _userService.Login(model);
-                if (token == null)
-                    return View(model);         
-                
-                //Request.Headers.Add("Authorization", $"Bearer {token}");
-
+                bool user = await _userService.Login(model);
+                if (user == false)
+                {
+                    ViewData["Request"] = "Email или пароль введены неверно";
+                    return View(model);
+                }                
                 return RedirectToAction("Account", "User");
             }
+            
             return View(model);
         }
-        
+
+        [AllowAnonymous]
+        public IActionResult LoginGoogle(string returnUrl = null)
+        {
+            var redirectUrl = Url.Action("GoogleCallback", "User", new { ReturnUrl = returnUrl });
+            var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+            return Challenge(properties, GoogleDefaults.AuthenticationScheme);
+        }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> GoogleCallback(string returnUrl = null)
+        {
+            var authenticateResult = await HttpContext.AuthenticateAsync(GoogleDefaults.AuthenticationScheme);
+            if (authenticateResult.Succeeded)
+            {                
+                //var user = authenticateResult.Principal;                
+                if (await _userService.GetUser() == null)
+                    await _userService.SetGoogleAuth();
+                return RedirectToAction("Account", "User");
+            }
+            else
+            {                
+                return RedirectToAction("Login");
+            }
+        }
+
+        [AllowAnonymous]
+        public IActionResult LoginVK(string returnUrl = null)
+        {            
+            var redirectUrl = Url.Action("ExternalLoginCallback", "User", new { ReturnUrl = returnUrl });
+            var properties = new AuthenticationProperties {
+                RedirectUri = redirectUrl,
+                Items =
+                {
+                    {"scope", "Email" }
+                }
+                };
+            return Challenge(properties, VkontakteAuthenticationDefaults.AuthenticationScheme);
+        }
+
+        [AllowAnonymous]
+        public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null)
+        {
+            var authenticateResult = await HttpContext.AuthenticateAsync(VkontakteAuthenticationDefaults.AuthenticationScheme);
+            if (authenticateResult.Succeeded)
+            {
+                var user = authenticateResult.Principal;
+                await _userService.SetVKAuth(user);      
+                
+                return RedirectToAction("Account", "User");
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+
         public async Task<IActionResult> Account()
         {            
-            var user = await _userService.GetUser();
-            
-            return View(user.Data);
+            User user = await _userService.GetUser();
+
+            var authenticateResult = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return View(user);
         }
 
         [HttpPost]
@@ -85,16 +148,13 @@ namespace JustProject.Controllers
             }
             return View(model);
         }
-
-
-        [HttpGet]
+        
         public async Task<ActionResult> LoginTest()
         {
             var user = await _userService.GetUser();
-            return View(user.Data);
+            return View(user);
         }
-
-        [HttpGet]
+        
         public async Task<IActionResult> HistoryTests(int id)
         {            
             id = Convert.ToInt32(TempData["TestIdBuy"]);            
@@ -110,8 +170,7 @@ namespace JustProject.Controllers
 
             return View(testsAdd);
         }
-
-        [HttpGet]
+       
         public async Task<IActionResult> Delete(int id)
         {
             var tests = await _userService.GetHistoryTestDelete(id);
@@ -133,7 +192,7 @@ namespace JustProject.Controllers
         public async Task<IActionResult> Consultation()
         {            
             var user = await _userService.GetUser();
-            return View(user.Data);
+            return View(user);
         }        
     }
 }

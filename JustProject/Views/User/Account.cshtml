@@ -10,7 +10,7 @@
 <div class="account d-flex justify-content-between">
     <div class="personal-cart">
         <img src="~/Images/User/personal.png"/>
-        <p>@Model.Name</p>
+        <p>@User.Identity.Name</p>
         <hr />
         <div>
             <a class="page-a" href="~/User/Account">Личные данные</a>
@@ -19,21 +19,28 @@
         <a class="page-a" href="~/User/HistoryTests">История тестов</a>
         <a class="page-a" href="~/User/Consultation">Констультация</a>
         <a class="page-a" href="~/User/Results">Результаты тестов</a>
-        <a class="btn-link exit" href="~/User/LogOut">Выйти</a>
+        <a class="btn-link exit" href="~/User/LogOut">Выйти</a>        
     </div>
     <div class="personal-data">
+        <img class="account-menu" id="toggleBtn" src="~/Images/User/menu.png" />
         <form action="~/User/Account" method="post" >
             <h3 class="txt-edit" id="">Данные были изменены</h3>
-            <label>ФИО</label>
-            <input type="text" name="FullName" id="userData" value="@Model.Surname @Model.Name @Model.Patronumic"/>
-            <label>E-mail</label>
-            <input type="email" id="userData" name="Email" value="@Model.Email"
-            pattern="[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2,}$" />
+            <div class="d-grid">
+                <label>ФИО</label>
+                <input type="text" name="FullName" id="userData" value="@Model.Surname @Model.Name @Model.Patronumic" />
+            </div>
+            <div class="d-grid">
+                <label>E-mail</label>
+                <input type="email" id="userData" name="Email" value="@Model.Email"
+                       pattern="[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{2,}$" />
+            </div>
             @*<label>Пароль</label>
             <input type="password" id="userData" name="Password" value="" 
             minlength="6"/>*@
-            <label>Телефон</label>
-            <input type="text" id="userData" name="Phone" class="mb-5" value="@Model.Phone"/>
+            <div class="d-grid">
+                <label>Телефон</label>
+                <input type="text" id="userData" name="Phone" class="mb-5" value="@Model.Phone" />
+            </div>
             <div>
                 <button type="submit" id="resetBtn" name="resetBtn" class="mt-5"><span>Сохранить изменения</span></button>    
                 <button type="reset" id="resetBtn" name="resetBtn" class="btn-changes-end"><span>Отменить изменения</span></button>

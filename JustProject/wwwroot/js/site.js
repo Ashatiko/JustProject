@@ -23,3 +23,20 @@ function scrollToAdvantages() {
     window.location.href = "/Home/Index" + "#advantages";
 }
 
+const toggleBtn = document.getElementById('toggleBtn');
+const sidebar = document.querySelector('.personal-cart');
+const container = document.querySelector('.container');
+
+toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+});
+
+container.addEventListener('click', (event) => {
+    if (sidebar.classList.contains('active') && !event.target.matches('#toggleBtn')) {
+        sidebar.classList.remove('active');
+    }
+});
+
+sidebar.addEventListener('click', (event) => {
+    event.stopPropagation();
+});

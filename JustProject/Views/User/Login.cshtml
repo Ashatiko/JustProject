@@ -23,7 +23,18 @@
             <input type="password" name="Password"/>            
             @Html.ValidationMessageFor(m=>m.Password)
 
+            <p class="p-0" style="color:#d50000">@ViewData["Request"]</p>
+
             <button type="submit">Войти</button>
+
+            <div class="d-flex justify-content-center mt-5">
+                <a asp-action="LoginGoogle" asp-controller="User">
+                    <img src="~/Images/google.png"/>
+                </a>                
+                @*<a asp-action="LoginVK" asp-contorller="User">
+                    <img src="~/Images/vk.png" />
+                </a>*@
+            </div>            
         </form>
     </div>
 </div>

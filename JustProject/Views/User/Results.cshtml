@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="~/css/Account.css" />
 
 <div class="top-line"></div>
-<div class="d-flex justify-content-between">
+<div class="account d-flex justify-content-between">
     <div class="personal-cart">
         <img src="~/Images/User/personal.png"/>
         <p>@User.Identity.Name</p>
@@ -21,6 +21,7 @@
         <a class="btn-link exit" href="~/User/LogOut">Выйти</a>
     </div>
     <div class="personal-data">
+        <img class="account-menu" id="toggleBtn" src="~/Images/User/menu.png" />
         <h2>Результаты</h2>        
 
     </div>

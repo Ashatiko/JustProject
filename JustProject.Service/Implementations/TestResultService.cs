@@ -1,14 +1,6 @@
-﻿using JustProject.DAL.Interfaces;
-using JustProject.DAL.Repositories;
+﻿using JustProject.DAL.Repositories;
 using JustProject.Domain.Entity;
-using JustProject.Models.Tests.ViewModel;
 using JustProject.Service.Interfaces;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JustProject.Service.Implementations
 {
@@ -20,9 +12,14 @@ namespace JustProject.Service.Implementations
             _testResultRepository = testResultRepository;
         }
 
-        public async Task<TestResult> Get(int id)
+        public async Task<TestResult> Get(int userTestId)
         {
-            return (await _testResultRepository.GetAll()).FirstOrDefault(x=>x.TestId == id);
+            return (await _testResultRepository.GetAll()).FirstOrDefault(x=>x.UserTestId == userTestId);
+        }
+
+        public async Task<TestResult> Get(int testId, int userTestId)
+        {            
+            return (await _testResultRepository.GetAll()).FirstOrDefault(x => x.UserTestId == userTestId && x.TestId == testId);
         }
 
         public async Task<IEnumerable<TestResult>> GetAll()

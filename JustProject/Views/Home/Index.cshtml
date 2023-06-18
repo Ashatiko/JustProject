@@ -7,22 +7,20 @@
 <link rel="stylesheet" href="~/css/Landing.css" />
 
 <div class="landing">
-    <div class="section-1">
-        <div class="d-flex justify-content-between">
-            <div class="info">
-                <h1>Комплексное<br />
-                    тестирование у вас дома</h1>
-                <p>Определите свои реальные способности, общую<br />
-                    и профессиональную мотивацию, а также<br />
-                    личностные качества.</p>
-                    <button onclick="scrollToInfo()"><span>Подробнее</span></button>
-            </div>
-            <img src="~/Images/Landing/landing-1.png" alt="first img"/>
+    <div class="section-1 justify-content-between">
+        <div class="info">
+            <h1>Комплексное<br />
+                тестирование у вас дома</h1>
+            <p>Определите свои реальные способности, общую<br />
+                и профессиональную мотивацию, а также<br />
+                личностные качества.</p>
+                <button onclick="scrollToInfo()"><span>Подробнее</span></button>
         </div>
+        <img src="~/Images/Landing/landing-1.png" alt="first img"/>
     </div>
     <img class="transition-top" src="~/Images/Landing/transitionTop.png" />
     <div class="section-2" id="AboutUs">            
-        <div class="section-2-content d-flex justify-content-between">
+        <div class="section-2-content justify-content-around">
             <div class="info">
                 <hr />
                 <h1>О нас</h1>
@@ -40,8 +38,8 @@
             <hr />
             <h1>Подберите категорию под себя</h1>
         </div>
-        <div class="d-flex justify-content-center">            
-            <a asp-action="BuyTests" asp-controller="Tests" asp-route-type="Школьники">
+        <div class="section-3-carts justify-content-center">            
+            <a class="link-tests-modile" asp-action="BuyTests" asp-controller="Tests" asp-route-type="Школьники">
                 <div class="section-3-cart">
                     <img src="~/Images/landing/cart-1.png" alt="Backpack" />
                     <h4>Для обучающихся</h4>
@@ -51,7 +49,7 @@
                         каждого.</p>
                 </div>
             </a>
-            <a asp-action="BuyTests" asp-controller="Tests" asp-route-type="Специалисты">
+            <a class="link-tests-modile" asp-action="BuyTests" asp-controller="Tests" asp-route-type="Специалисты">
                 <div class="section-3-cart">
                     <img src="~/Images/landing/cart-2.png" alt="PageTxt" />
                     <h4>Для специалистов</h4>
@@ -61,7 +59,7 @@
                         каждого.</p>
                 </div>
             </a>
-            <a asp-action="BuyTests" asp-controller="Tests" asp-route-type="Организация">
+            <a class="link-tests-modile" asp-action="BuyTests" asp-controller="Tests" asp-route-type="Организация">
                 <div class="section-3-cart">
                     <img src="~/Images/landing/cart-3.png" alt="VectorUp" />
                     <h4>Для организации</h4>
@@ -75,7 +73,7 @@
     </div>
     <div class="section-4" id="info">
         <img class="transition-4-top" src="~/Images/landing/transitionTopBottom.png" />
-        <div class="section-4-content d-flex justify-content-between align-content-center">
+        <div class="section-4-content justify-content-around align-content-center">
             <img src="~/Images/Landing/Photo.png"/>
             <div>
                 <hr />
@@ -163,9 +161,9 @@
         <div>
             <h3>Связаться с нами</h3>
             <div class="messenger d-flex justify-content-between">
-                <a href="#"><img src="~/Images/whatsapp.svg"/></a>
-                <a href="#"><img src="~/Images/mail.svg"/></a>
-                <a href="#"><img src="~/Images/telegram.svg"/></a>
+                <a href="https://wa.me/89503377052"><img src="~/Images/whatsapp.svg" /></a>
+                <a href="mailto:bobt8770@gmail.com"><img src="~/Images/mail.svg" /></a>
+                <a href="https://t.me/GodIzil"><img src="~/Images/telegram.svg" /></a>
             </div>
         </div>
         <div id="map" class="map">            
@@ -181,7 +179,7 @@
     const map = new mapgl.Map('map', {
         center: [73.389767, 54.957217],
         zoom: 16,
-        //key: '07d215b7-911c-4779-a9ae-939e07dcc51c',
+        key: '07d215b7-911c-4779-a9ae-939e07dcc51c',
     });
     const marker = new mapgl.Marker(map, {
         coordinates: [73.389767, 54.957217],               

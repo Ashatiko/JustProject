@@ -45,12 +45,12 @@
 }
 
 .question {
-    height: 215px;
+    height: auto;
     width: 1005px;
     border-radius: 22px;
     background: #C2DCEE;
-    padding:35px;
-    margin-bottom:40px;
+    padding: 30px;
+    margin-bottom: 40px;
 }
 
 .question p{
@@ -98,11 +98,10 @@ form a{
 }
 
 .answers-txt div {
-    width: 500px;
-}
-
-.answers-txt div:last-child {
-    width:auto;
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0px 50px;
 }
 
 input[type="radio"] {

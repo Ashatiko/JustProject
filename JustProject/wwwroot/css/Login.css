@@ -3,6 +3,11 @@
     padding-bottom:95px;
 }
 
+.login {
+    min-height: 970px;
+    height: 85vh;
+}
+
 .login-a{
     width:367px;
     margin:0 auto;
@@ -25,7 +30,7 @@
 
 .login span {
     color: #d50000;
-    margin: -50px auto 50px auto;
+    margin: -40px auto 50px auto;
 }
 
 .enter input {
@@ -73,4 +78,20 @@
 
 .login-container{
     height:800px;
+}
+
+.login img {
+    height: 50px;
+    width: 50px;
+    margin: 0 15px;
+    transition: all 0.2s ease-in-out;
+}
+
+.login img:hover {
+    height: 55px;
+    width: 55px;    
+}
+
+.btn-test-enter {
+    margin-bottom: 250px;
 }

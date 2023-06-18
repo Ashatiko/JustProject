@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NPihhzQyIiH+RRQdAJ5fTAW6LHyEx69ltL7tTuWs9V0=",
+  "Hash": "ma0urk1F7ErPj0aoH1e65nAZ1H0Xj3TtiFvzIYM18OY=",
   "Source": "JustProject",
   "BasePath": "_content/JustProject",
   "Mode": "Default",
@@ -1088,6 +1088,23 @@
       "OriginalItemSpec": "wwwroot\\css\\Account.css"
     },
     {
+      "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\css\\adaptive.css",
+      "SourceId": "JustProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\JustProject\\JustProject\\wwwroot\\",
+      "BasePath": "_content/JustProject",
+      "RelativePath": "css/adaptive.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\adaptive.css"
+    },
+    {
       "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\css\\AddCMS.css",
       "SourceId": "JustProject",
       "SourceType": "Discovered",
@@ -1188,6 +1205,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\Images\\google.png",
+      "SourceId": "JustProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\JustProject\\JustProject\\wwwroot\\",
+      "BasePath": "_content/JustProject",
+      "RelativePath": "Images/google.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\google.png"
     },
     {
       "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\Images\\landing\\cart-1.png",
@@ -1513,6 +1547,23 @@
       "OriginalItemSpec": "wwwroot\\Images\\Test\\Star.png"
     },
     {
+      "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\Images\\User\\menu.png",
+      "SourceId": "JustProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\JustProject\\JustProject\\wwwroot\\",
+      "BasePath": "_content/JustProject",
+      "RelativePath": "Images/User/menu.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\User\\menu.png"
+    },
+    {
       "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\Images\\User\\personal.png",
       "SourceId": "JustProject",
       "SourceType": "Discovered",
@@ -1528,6 +1579,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\User\\personal.png"
+    },
+    {
+      "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\Images\\vk.png",
+      "SourceId": "JustProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\C#\\JustProject\\JustProject\\wwwroot\\",
+      "BasePath": "_content/JustProject",
+      "RelativePath": "Images/vk.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\vk.png"
     },
     {
       "Identity": "D:\\C#\\JustProject\\JustProject\\wwwroot\\Images\\whatsapp.svg",

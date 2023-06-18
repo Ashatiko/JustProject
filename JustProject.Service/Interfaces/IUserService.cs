@@ -13,13 +13,15 @@ namespace ProjectAspMvc.Service.Interfaces
     public interface IUserService
     {
         Task<IBaseResponse<User>> GetEditUser(AccountViewModel model);
-        Task<IBaseResponse<User>> GetUser();   
+        Task<User> GetUser();   
         Task<IEnumerable<UserTests>> GetHistoryTest();
         Task<IEnumerable<UserTests>> GetHistoryTestAdd(int id);
         Task<bool> GetHistoryTestDelete(int id);
-        Task<string> Login(LoginViewModel model);
+        Task<bool> Login(LoginViewModel model);
         Task<bool> Register(RegisterViewModel model);
         Task<bool> LoginTest();
-        Task<bool> LogOut();        
+        Task<bool> LogOut();
+        Task SetGoogleAuth();
+        Task SetVKAuth(ClaimsPrincipal user);
     }
 }

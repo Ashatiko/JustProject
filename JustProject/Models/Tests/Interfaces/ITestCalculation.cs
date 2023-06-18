@@ -2,7 +2,6 @@
 {
     public interface ITestCalculation
     {
-        Task<bool> SaveStepTest(IFormCollection model, string name, int id);
-        Task<bool> CreateResult(int userId, string nameTest);
+        Task<bool> SaveStepCommonTest(int testId, int numGroup, int userTestId, IFormCollection model, string groupName);        
     }
 }

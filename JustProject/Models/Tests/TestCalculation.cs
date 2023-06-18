@@ -1,96 +1,86 @@
 ﻿using JustProject.Domain.Entity;
+using JustProject.Domain.Entity.Test;
 using JustProject.Models.Tests.Interfaces;
 using JustProject.Service.Interfaces;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProjectAspMvc.Service.Interfaces;
 
 namespace JustProject.Models.Tests
 {
     public class TestCalculation : ITestCalculation
     {
-        private readonly ITestResultService _resultService;
-        private readonly IUserService _userService;
+        private readonly ITestResultService _resultService;        
         private readonly IUserTestsService _userTestsService;
-        public TestCalculation(ITestResultService resultService,IUserService userService, IUserTestsService userTestsService)
+        private readonly ITestGroupsService _groupsService;
+        private readonly IAnswersService _answersService;
+        private readonly IGroupsResultService _groupsResultService;
+
+        public TestCalculation(ITestResultService resultService, IUserTestsService userTestsService,
+            ITestGroupsService groupsService, IAnswersService answersService, IGroupsResultService groupsResult)
         {
-            _resultService = resultService;
-            _userService = userService;
+            _resultService = resultService;            
             _userTestsService = userTestsService;
+            _groupsService = groupsService;
+            _answersService = answersService;
+            _groupsResultService = groupsResult;
         }
 
-        public async Task<bool> CreateResult(int userId, string nameTest)
+        public async Task<bool> SaveStepCommonTest(int testId, int numGroup, int userTestId, IFormCollection model, string groupName)
         {
-            TestResult saveModel = new TestResult()
+            var countGroup = await _groupsService.GetTestGroup(testId);            
+            var userTest = (await _userTestsService.GetAll()).FirstOrDefault(x => x.Id == userTestId);
+            var percent = countGroup.Count() - numGroup;
+            double result = (double)percent / countGroup.Count() * 100;
+            userTest.Complete = ((int)result - 100) * -1;
+            if (await _userTestsService.Update(userTest))
             {
-                NameTest = nameTest,
-                UserTestId = userId,                
-            };
-            await _resultService.SaveTest(saveModel);
-            return true;
+                await SaveResultCommonTest(model, groupName, userTestId, testId, userTest.NameTest);
+                return true;
+            }                
+            return false;
         }
-
-        public async Task<bool> SaveStepTest(IFormCollection model, string name, int id)
+        async Task<bool> SaveResultCommonTest(IFormCollection model, string groupName, int userTestId, int testId, string nameTest)
         {
-            var user = await _userService.GetUser();
-            var testVal = (await _resultService.GetAll()).FirstOrDefault(x=>x.UserTestId == user.Data.Id && x.TestId == id);
-            var userTest = (await _userTestsService.GetAll()).FirstOrDefault(x => x.Id == id);
-            int result = 0;
-            foreach (var answer in model)
+            int correctCount = 0;            
+            foreach (var item in model)
             {
-                if (answer.Key != "stepName")
-                {
-                    foreach (var test in SchoolTest.TestsViewModel.AnalyticSkills)
-                    {
-                        if (Convert.ToInt32(answer.Value) == test.CorrectChoiceIndex)
-                        {
-                            result++;
-                        }
-                    }
-                }
+                if (await _answersService.GetCorrectChoose(Convert.ToInt32(item.Value)))
+                    correctCount++;
             }
-            if (testVal == null)
-            {                
+            if (await _groupsResultService.GetCheck(userTestId))
+            {
                 TestResult saveModel = new TestResult()
                 {
-                    NameTest = name,
-                    UserTestId = user.Data.Id,
-                    TestId = id,
-                    FirstStep = result,
-                    SecondStep = 77,
-                    ThirdStep = 77,
-                    FourthStep = 77,
+                    NameTest = nameTest,
+                    UserTestId = userTestId,
+                    TestId = testId,                                  
                 };
-                userTest.Complete = 25;
-                await _userTestsService.Update(userTest);
-                await _resultService.SaveTest(saveModel);
-                return true;
+                await _resultService.SaveTest(saveModel);                
+
+                GroupsResult groupsResult = new GroupsResult()
+                {
+                    GroupCorrectAns = correctCount,
+                    GroupName = groupName,
+                    UserTestsId = userTestId,
+                    TestResultId = saveModel.Id,
+                };
+                await _groupsResultService.CreateGroup(groupsResult);
             }
             else
             {
-                if (testVal.SecondStep == 77)
+                var testResult =  await _resultService.Get(testId, userTestId);
+
+                GroupsResult groupsResult = new GroupsResult()
                 {
-                    testVal.SecondStep = result;
-                    userTest.Complete = 50;
-                }
-                else if (testVal.ThirdStep == 77)
-                {
-                    testVal.ThirdStep = result;
-                    userTest.Complete = 75;
-                }
-                else if (testVal.FourthStep == 77)
-                {
-                    testVal.FourthStep = result;
-                    userTest.Complete = 100;
-                    testVal.Result = testVal.FirstStep + testVal.SecondStep + testVal.ThirdStep + testVal.FourthStep;
-                }
-                else 
-                {
-                    testVal.Result = testVal.FirstStep + testVal.SecondStep + testVal.ThirdStep + testVal.FourthStep;
-                    userTest.Complete = 100;
-                }
-                await _resultService.Update(testVal);
-                await _userTestsService.Update(userTest);
-                return true;
-            }            
+                    GroupCorrectAns = correctCount,
+                    GroupName = groupName,
+                    UserTestsId = userTestId,
+                    TestResultId = testResult.Id,
+                };
+                await _groupsResultService.CreateGroup(groupsResult);
+            }
+            return true;
         }
+
     }
 }

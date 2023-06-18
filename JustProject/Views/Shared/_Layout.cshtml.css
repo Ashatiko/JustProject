@@ -5,9 +5,11 @@
     margin:0 auto;
 }
 
-
-    
-    
+@media(max-width: 500px) {
+    .container {
+        width: 100vw;
+    }
+}
 
 .btn-none {
     background: none;
@@ -25,6 +27,10 @@
 .header-link {
     width: 363px;
     padding-right: 45px;
+}
+
+.header-btn-mobile {
+    display: flex;
 }
 
 header button span {
@@ -85,6 +91,7 @@ header hr{
     width: 345px;
     padding-top: 10px;
     height: 110px;
+    display:flex;
 }
 
 .footer-info{

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zxa4zI1P6MwzzzOXWRSCdCCJ4hjHk1BKeH19G+HydIh299966mSfRzJLR4tm+T4hdRQsMae7qhztgFfKGN8Rrg==",
+  "dgSpecHash": "KoNW1jaxzpgZmKW3IXXMV7w4dCzsC28XEtrP3+t+Zn7+cK87/QbXhkz55SRJ44BzXJ5XQmRBY4+dJB/OihWEPA==",
   "success": true,
   "projectFilePath": "D:\\C#\\JustProject\\JustProject.DAL\\JustProject.DAL.csproj",
   "expectedPackageFiles": [
@@ -22,7 +22,10 @@
     "C:\\Users\\Днс\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0-preview.3.23174.8\\microsoft.extensions.logging.abstractions.8.0.0-preview.3.23174.8.nupkg.sha512",
     "C:\\Users\\Днс\\.nuget\\packages\\microsoft.extensions.options\\8.0.0-preview.3.23174.8\\microsoft.extensions.options.8.0.0-preview.3.23174.8.nupkg.sha512",
     "C:\\Users\\Днс\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0-preview.3.23174.8\\microsoft.extensions.primitives.8.0.0-preview.3.23174.8.nupkg.sha512",
-    "C:\\Users\\Днс\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\Днс\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\Днс\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.14\\microsoft.windowsdesktop.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\Днс\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.14\\microsoft.netcore.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\Днс\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.14\\microsoft.aspnetcore.app.ref.6.0.14.nupkg.sha512"
   ],
   "logs": []
 }

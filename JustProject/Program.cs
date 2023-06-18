@@ -8,17 +8,12 @@ using ProjectAspMvc.Service.Interfaces;
 using JustProject.Service.Interfaces;
 using JustProject.Models.Tests;
 using JustProject.Models.Tests.Interfaces;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.Google;
+using JustProject.Domain.Entity.Test;
 
 var builder = WebApplication.CreateBuilder(args);
+var config = builder.Configuration;
 
 builder.Services.AddSession();
 
@@ -27,12 +22,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDBContext>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.Configure<JWTSettings>(builder.Configuration.GetSection("JWTSettings"));
-
-//var secretKey = builder.Configuration.GetSection("JWTSettings:SecretKey").Value;
-//var issuer = builder.Configuration.GetSection("JWTSettings:Issuer").Value;
-//var audience = builder.Configuration.GetSection("JWTSettings:Audience").Value;
-//var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddTransient<ITestResultService, TestResultService>();
@@ -47,7 +36,6 @@ builder.Services.AddTransient<IBaseRepository<TestResult>, TestResultRepository>
 
 builder.Services.AddScoped<IBaseRepository<UserAllowTest>, UserAllowTestRepository>();
 
-
 builder.Services.AddTransient<UserTestsRepository>();
 
 builder.Services.AddScoped<JWTSettings>();
@@ -59,32 +47,39 @@ builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<TestResultRepository>();
 builder.Services.AddScoped<TestsRepository>();
 
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+builder.Services.AddTransient<IAnswersService, AnswersService>();
+builder.Services.AddScoped<AnswersRepository>();
+
+builder.Services.AddTransient<ITestGroupsService, TestGroupsService>();
+builder.Services.AddScoped<TestGroupsRepository>();
+
+builder.Services.AddTransient<IQuestionsService, QuestionsService>();
+builder.Services.AddScoped<QuestionsRepository>();
+
+builder.Services.AddTransient<IGroupsResultService, GroupsResultService>();
+builder.Services.AddScoped<GroupsResultRepository>();
+
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+}).AddCookie(options =>
 {
     options.LoginPath = "/User/Login";
     options.AccessDeniedPath = "/User/Account";
     options.SlidingExpiration = true;
     options.Cookie.HttpOnly = true;
+}).AddGoogle(options =>
+{
+    IConfigurationSection googleAuthNSection =
+    config.GetSection("Authentication:Google");
+    options.ClientId = "78627099217-s286j3trgnrvklltc1ijaj233bp0dufe.apps.googleusercontent.com";
+    options.ClientSecret = "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";
+}).AddVkontakte(options =>
+{
+    options.ClientId = "51680143";
+    options.ClientSecret = "8jXbvB0aUHYTAQkbKRgU";
 });
-
-//builder.Services.AddAuthentication(options =>
-//{
-//    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-//    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-//    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-//}).AddJwtBearer(options =>
-//{
-//    options.TokenValidationParameters = new TokenValidationParameters
-//    {
-//        ValidateIssuer = true,
-//        ValidIssuer = issuer,
-//        ValidateAudience = true,
-//        ValidAudience = audience,
-//        ValidateLifetime = true,
-//        IssuerSigningKey = signingKey,
-//        ValidateIssuerSigningKey = true,
-//    };
-//});
 
 builder.Services.AddAuthorization();
 
@@ -99,6 +94,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 var app = builder.Build();
 
 app.UseRouting();
+
 
 app.UseAuthentication();
 
@@ -117,11 +113,7 @@ app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}/{string?}");
-
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
+    pattern: "{controller=Home}/{action=Index}/{id?}/{string?}"
+    );
 
 app.Run();

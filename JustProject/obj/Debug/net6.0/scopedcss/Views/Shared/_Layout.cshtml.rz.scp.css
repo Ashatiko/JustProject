@@ -5,9 +5,11 @@
     margin:0 auto;
 }
 
-
-    
-    
+@media(max-width: 500px) {
+    .container[b-r4ssp3n2oj] {
+        width: 100vw;
+    }
+}
 
 .btn-none[b-r4ssp3n2oj] {
     background: none;
@@ -25,6 +27,10 @@
 .header-link[b-r4ssp3n2oj] {
     width: 363px;
     padding-right: 45px;
+}
+
+.header-btn-mobile[b-r4ssp3n2oj] {
+    display: flex;
 }
 
 header button span[b-r4ssp3n2oj] {
@@ -85,6 +91,7 @@ header hr[b-r4ssp3n2oj]{
     width: 345px;
     padding-top: 10px;
     height: 110px;
+    display:flex;
 }
 
 .footer-info[b-r4ssp3n2oj]{

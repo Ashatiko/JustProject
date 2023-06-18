@@ -7,7 +7,7 @@
     text-align: center;
     box-shadow: 0 0 20px 3px #808080;    
     margin-right:10px;
-}
+}    
 
 .txt-edit {
     justify-content: center;
@@ -59,6 +59,10 @@
     font-size: 24px;
     padding-top: 20px;
     color:#0071C2;
+}
+
+.account-menu{
+    visibility:hidden;
 }
 
 .personal-cart span{
@@ -162,4 +166,8 @@
 
 .consultation span{
     padding: 0 55px 0 55px;
+}
+
+.history-mobile{
+    display:flex;
 }

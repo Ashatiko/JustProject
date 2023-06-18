@@ -14,6 +14,7 @@ namespace JustProject.Service.Interfaces
     {
         Task<IEnumerable<UserTests>> GetAll();
         Task<UserTests> Get(int id);
+        Task<string> GetName(int id);
         Task<bool> Update(UserTests userTests);
     }
 }

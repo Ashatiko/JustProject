@@ -18,10 +18,13 @@
         <form class="d-grid enter justify-content-center" action="~/User/Register" method="post">
             <label>E-mail</label>
             <input type="text" name="Email" value="" />
+            @Html.ValidationMessageFor(m=>m.Email)
             <label>Пароль</label>
             <input type="password" name="Password" value="" /> 
+            @Html.ValidationMessageFor(m=>m.Password)
             <label>Повторите пароль</label>
             <input type="password" name="ConfirmPassword" value="" />
+            @Html.ValidationMessageFor(m=>m.ConfirmPassword)
 
             <button type="submit">Зарегистрироваться</button>            
             <p>Нажимая кнопку “Зарегистрироваться”, Вы принимаете условия<br />

@@ -1,0 +1,56 @@
+﻿@model JustProject.Domain.ViewModels.Tests.CommonTestsViewModel
+
+@{
+    ViewBag.Title = @Model.TestGroups.GroupName;
+}
+
+<link rel="stylesheet" href="~/css/Tests.css" />
+
+<div class="test">
+    <h1>@Model.TestGroups.GroupName</h1>
+    <form class="d-flex justify-content-center" method="post" action="CommonTestResponse">
+        <div>   
+            @{
+                var answerNumberLine = 1;
+                var answerNumber = 1;
+                var question = Model.Questions.ToList();
+            }
+            @for (int i = 0; i < question.Count; i++)
+            {
+            <div class="question">                                
+                    <p>@question[i].QuestionsName</p>
+                    <div class="d-flex answers-txt">
+                        <div>
+                            @{
+                                int c = 1;
+                                var answers = Model.Answers.Where(x => x.QuestionsId == question[i].QuestionsId).ToList();
+                            }
+                            @foreach (var test in answers)
+                            {
+                                <p>@c.  @test.AnswersText</p>
+                                c++;
+                            }
+                        </div>
+                    </div>
+                
+            </div>
+            <div class="d-flex justify-content-between answer">                
+                @{
+                    var answerNumberView = 1;
+                }
+                @foreach (var test in answers)
+                {
+                    <input type="radio" name="@answerNumberLine" value="@test.AnswersId" id="@answerNumber" />
+                    <label for="@answerNumber" class="radio">@answerNumberView</label>
+                    answerNumber++;
+                    answerNumberView++;
+                }                
+            </div>
+                answerNumberLine++;
+            }
+            <div class="d-flex justify-content-center">
+                <button>Далее</button>
+            </div>
+        </div>
+    </form>
+</div>

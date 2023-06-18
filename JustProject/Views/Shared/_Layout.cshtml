@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@700&display=swap" rel="stylesheet"> 
-
+    
     
 </head>
 <body>
@@ -19,38 +19,39 @@
 
         <header class="pt-4">
             <div class="d-flex justify-content-between align-items-center">
-                <a asp-action="Index" asp-controller="Home"><img src="~/Images/logo.svg" alt="KOPP test"/></a>
-                <div class="d-flex justify-content-between align-items-center">
+                <a asp-action="Index" asp-controller="Home"><img class="logo" src="~/Images/logo.svg" alt="KOPP test"/></a>
+                <div class="header-btn-mobile justify-content-between align-items-center">
                     <div class="header-link d-flex justify-content-between">
                         <button class="btn-none" onclick="scrollToAboutUs()">О нас</button>
                         <button class="btn-none" onclick="scrollToContact()">Контакты</button>
                         <button class="btn-none" onclick="scrollToTests()">Тестирование</button>   
-                    </div>                            
-                    @if (User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("Manager"))
+                    </div>                                         
+                    <a asp-action="LogOut" asp-controller="User">выход</a>
+                    @if (User.Identity.IsAuthenticated)
                     {                             
-                        <a asp-controller="User" asp-action="Account">
-                            <img src="~/Images/landing/user.png">
+                        <a class="enter-link" asp-controller="User" asp-action="Account">
+                            <img src="~/Images/landing/user.png" >
                             @User.Identity.Name
                         </a>                            
                     }                    
                     else
                     {
-                        <a class="btn-link" asp-controller="User" asp-action="Login"><span>Войти</span></a>   
-                    }
+                        <a class="btn-link btn-link-enter" asp-controller="User" asp-action="Login"><span>Войти</span></a>
+                    }                   
                 </div>
             </div>
             <hr />
         </header>
-        <main role="main">
+        <main role="main">            
             @RenderBody()
         </main>
 
         <footer class="footer">                
             <hr />
             <div class="footer-container">
-                <div class="d-flex justify-content-between">
-                    <a asp-action="Index" asp-controller="Home"><img src="~/Images/logo.svg" alt="KOPP test"/></a>
-                    <div class="footer-links d-flex justify-content-between">
+                <div class="d-flex justify-content-around">
+                    <a asp-action="Index" asp-controller="Home"><img class="logo" src="~/Images/logo.svg" alt="KOPP test"/></a>
+                    <div class="footer-links justify-content-between">
                         <div>                            
                             <button class="btn-none" onclick="scrollToAdvantages()">Наши преимущества</button>
                             <button class="btn-none" onclick="scrollToAboutUs()">О нас</button>          
@@ -58,7 +59,7 @@
                             <button class="btn-none" onclick="scrollToContact()">Контакты</button>
                         </div>
                         <div class="footer-link-block">
-                            @if (User.IsInRole("Admin") || User.IsInRole("User") || User.IsInRole("Manager"))
+                            @if (User.Identity.IsAuthenticated)
                             {
                                 <a class="footer-link" asp-controller="User" asp-action="Account"><span>Личный кабинет</span> </a>
                             }
@@ -71,9 +72,9 @@
                         </div>
                     </div>
                     <div class="footer-messenger d-flex justify-content-between">
-                        <a href="#"><img src="~/Images/whatsapp.svg"/></a>
-                        <a href="#"><img src="~/Images/mail.svg"/></a>
-                        <a href="#"><img src="~/Images/telegram.svg"/></a>
+                        <a href="https://wa.me/89503377052"><img src="~/Images/whatsapp.svg" /></a>
+                        <a href="mailto:bobt8770@gmail.com"><img src="~/Images/mail.svg" /></a>
+                        <a href="https://t.me/GodIzil"><img src="~/Images/telegram.svg" /></a>
                     </div>
                 </div>
                 <div class="footer-info d-flex justify-content-between">
@@ -84,6 +85,9 @@
         </footer>
 
     </div>
+
+    <link rel="stylesheet" href="~/css/adaptive.css" />
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

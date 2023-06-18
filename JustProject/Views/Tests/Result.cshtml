@@ -1,4 +1,4 @@
-﻿@model JustProject.Domain.Entity.TestResult
+﻿@model JustProject.Domain.ViewModels.Tests.CommonTestResultViewModel
 
 @{
     ViewBag.Title = "Результаты";
@@ -7,83 +7,32 @@
 <link rel="stylesheet" href="~/css/Tests.css" />
 
 <div class="result">
-    <h1>Способности</h1>
+    <h1>@Model.TestResult.NameTest</h1>
     <table>  
       <tr>
         <th> </th>
-        <th>0</th>
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
-        <th>4</th>
-        <th>5</th>
-        <th>6</th>
-        <th>7</th>
-        <th>8</th>
-      </tr>
-      @if (Model.NameTest == "Мотивация")
-      {
-        <tr>
-            <td>Аналитические</td>
-            @for (var i = 0; i < 9; i++)
-            {                
-                if (Model.FirstStep == i)
+        @for (int countColumns = 0; countColumns < 10; countColumns++)
+        {
+            <th>@countColumns</th>        
+        }
+      </tr>      
+      @foreach (var item in Model.GroupsResult)
+        {
+            <tr>
+                <td>@item.GroupName</td>
+                @for (var i = 0; i < 10; i++)
                 {
-                    <th>Point</th>
+                    if (item.GroupCorrectAns == i)
+                    {
+                        <th>Point</th>
+                    }
+                    else
+                    {
+                        <th></th>
+                    }
                 }
-                else
-                {
-                    <th></th>
-                }
-            }
-        </tr>   
-        <tr>
-            <td>Вербальные</td>
-            @for (var i = 0; i < 9; i++)
-            {                
-                if (Model.SecondStep == i)
-                {
-                    <th>Point</th>
-                }
-                else
-                {
-                    <th></th>
-                }
-            }
-        </tr>
-        <tr>
-            <td>Управление временем</td>
-            @for (var i = 0; i < 9; i++)
-            {                
-                if (Model.ThirdStep == i)
-                {
-                    <th>Point</th>
-                }
-                else
-                {
-                    <th></th>
-                }
-            }
-        </tr>
-        <tr>
-            <td>Творческое мышление</td>
-            @for (var i = 0; i < 9; i++)
-            {                
-                if (Model.FourthStep == i)
-                {
-                    <th>Point</th>
-                }
-                else
-                {
-                    <th></th>
-                }
-            }
-        </tr>
-        <tr class="result-value">
-            <td>Общие результаты</td>
-            <th>@Model.Result</th>
-        </tr>
-      }
+            </tr>
+        }
     </table>
     <p class="result-jobs"><b>Для данных способностей характерны следующие профессии и специальности:</b><br />
         <br />

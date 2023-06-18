@@ -22,9 +22,10 @@
         <a class="btn-link exit" href="~/User/LogOut">Выйти</a>
     </div>
     <div class="personal-data">
+        <img class="account-menu" id="toggleBtn" src="~/Images/User/menu.png" />
         @if (User.FindFirst(ClaimTypes.UserData)?.Value == "True")
         {
-             <div class="d-flex justify-content-between align-items-baseline">
+             <div class="history-mobile justify-content-between align-items-baseline">
                 <h2>Ваши тесты</h2>
                 <h5>Приобретение желаемых тестов <a asp-action="BuyTests" asp-controller="Tests">тут</a></h5>
             </div>
@@ -35,7 +36,7 @@
                     {
                         if (i<3)
                         {
-                            <div>
+                            <div>                                
                                 <a class="cart-test-delete" asp-controller="User"
                                 asp-action="Delete" asp-route-id="@test.Id">Удалить</a>
                                 <a asp-controller="Tests" asp-action="Example" asp-route-id="@test.Id">
